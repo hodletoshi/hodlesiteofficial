@@ -1,0 +1,484 @@
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-Light.eot');
+    src: url('font/ClearSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-Light.woff2') format('woff2'),
+        url('font/ClearSans-Light.woff') format('woff'),
+        url('font/ClearSans-Light.ttf') format('truetype'),
+        url('font/ClearSans-Light.svg#ClearSans-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-Italic.eot');
+    src: url('font/ClearSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-Italic.woff2') format('woff2'),
+        url('font/ClearSans-Italic.woff') format('woff'),
+        url('font/ClearSans-Italic.ttf') format('truetype'),
+        url('font/ClearSans-Italic.svg#ClearSans-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-Bold.eot');
+    src: url('font/ClearSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-Bold.woff2') format('woff2'),
+        url('font/ClearSans-Bold.woff') format('woff'),
+        url('font/ClearSans-Bold.ttf') format('truetype'),
+        url('font/ClearSans-Bold.svg#ClearSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-Medium.eot');
+    src: url('font/ClearSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-Medium.woff2') format('woff2'),
+        url('font/ClearSans-Medium.woff') format('woff'),
+        url('font/ClearSans-Medium.ttf') format('truetype'),
+        url('font/ClearSans-Medium.svg#ClearSans-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-BoldItalic.eot');
+    src: url('font/ClearSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-BoldItalic.woff2') format('woff2'),
+        url('font/ClearSans-BoldItalic.woff') format('woff'),
+        url('font/ClearSans-BoldItalic.ttf') format('truetype'),
+        url('font/ClearSans-BoldItalic.svg#ClearSans-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-Thin.eot');
+    src: url('font/ClearSans-Thin.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-Thin.woff2') format('woff2'),
+        url('font/ClearSans-Thin.woff') format('woff'),
+        url('font/ClearSans-Thin.ttf') format('truetype'),
+        url('font/ClearSans-Thin.svg#ClearSans-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans.eot');
+    src: url('font/ClearSans.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans.woff2') format('woff2'),
+        url('font/ClearSans.woff') format('woff'),
+        url('font/ClearSans.ttf') format('truetype'),
+        url('font/ClearSans.svg#ClearSans') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('font/ClearSans-MediumItalic.eot');
+    src: url('font/ClearSans-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('font/ClearSans-MediumItalic.woff2') format('woff2'),
+        url('font/ClearSans-MediumItalic.woff') format('woff'),
+        url('font/ClearSans-MediumItalic.ttf') format('truetype'),
+        url('font/ClearSans-MediumItalic.svg#ClearSans-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
+
+/* ***** STYLES ***** */
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100%;
+
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    --nav-width: 200px;
+    margin: 0 0 0 0;
+
+    font-family: 'Clear Sans';
+    font-size: 18px;
+    color: white;
+
+    text-align: center;
+
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+
+    background-color: #161616;
+}
+
+/* Add a black background color to the top navigation */
+.headernav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  background: #121213;
+  padding-top: 15px;
+  padding-bottom: 0px;
+
+  height: 50px;
+
+  z-index: 1000;
+
+  text-align: center;
+
+  border-bottom: 1px solid #3a3a3c;
+}
+
+.header-logo {
+  position: absolute;
+
+  background-image: url('../img/hodle_logo.png');
+  background-size: 200px 35px;
+  background-repeat: no-repeat;
+
+  width: 200px;
+  height: 35px;
+
+  margin-left: -100px;
+
+  top: 15px;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 350px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #121213;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
+
+  z-index: 900;
+
+  margin-top: 64px;
+
+  text-align: left;
+
+  -webkit-transform: translateX(-700px;);
+  -ms-transform: translateX(-700px);
+  transform: translateX(-700px);
+
+  filter: drop-shadow(0px 0px 5px black);
+  border: 1px solid black;
+}
+
+.side-nav-open {
+  -webkit-transform: translateX(0px;);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+.left-nav {
+  height: 20px;
+  width: 20px;
+  margin-left: 20px;
+  margin-right: -50px;
+  float: left;
+
+  padding-top: 8px;
+
+  cursor: pointer;
+}
+
+.right-nav {
+  height: 20px;
+  width: 20px;
+  margin-left: -50px;
+  margin-right: 20px;
+  float: right;
+
+  padding-top: 8px;
+
+  cursor: pointer;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.nav-icon {
+  height: 20px;
+  padding-right: 15px;
+  margin-bottom: -3px;
+}
+
+.clickable {
+  vertical-align: middle;
+  margin: auto;
+  display: flex;
+
+  line-height: 10px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.clickable:hover {
+  text-decoration: underline;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  font-weight: 100;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 25px;
+  margin-left: 50px;
+  color: white;
+
+  padding-top: 22px;
+}
+
+.sidenav .sidenav-logo {
+  position: absolute;
+
+  background-image: url('../img/hodle_logo.png');
+  background-size: 135px 25px;
+  background-repeat: no-repeat;
+
+  width: 125px;
+  height: 25px;
+
+  top: 10px;
+  left: 0px;
+  margin-left: 30px;
+  margin-top: 18px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.landing-teaser {
+  background-color: #161616;
+  width: 100vw;
+  height: 500px;
+}
+
+.landing-teaser-img {
+  margin-top: 25px;
+
+  height: 450px;
+  width: 450px;
+}
+
+.landing-about {
+  margin-top: 45px;
+  margin-bottom: 150px;
+
+  font-size: 30px;
+  font-weight: 300;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-about p {
+  font-size: 20px;
+  font-weight: normal;
+
+  width: 500px;
+  margin: auto;
+
+  padding-top: 35px;
+}
+
+.landing-about-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 20px;
+}
+
+.landing-about-logo {
+  margin-top: 10px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+
+  content: url('../img/hodle_logo.png');
+  height: 45px;
+}
+
+.top-title {
+  font-weight: normal;
+  width: 500px;
+  margin: auto;
+
+  margin-top: 75px;
+  margin-bottom: 55px;
+  line-height: 18px;
+}
+
+.title-subheader {
+  font-size: 20px;
+}
+
+
+.mint-img-div {
+  margin: auto;
+  margin-top: 105px;
+  margin-bottom: 0px;
+
+  width: 500px;
+  height: 350px;
+  text-align: center;
+  justify-content: center;
+}
+
+.mint-img {
+  height: 275px;
+  width: 275px;
+
+  content: url('../img/joindiscord_tiles.png');
+}
+
+.mint-text .top-title {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-top: 0px;
+
+  font-size: 30px;
+}
+
+.mint-text .title-subheader {
+  font-weight: normal;
+}
+
+.mint-text a {
+  color: white;
+}
+
+
+.content-div {
+  border-top: 2px solid #3a3a3c;
+
+  width: 500px;
+  margin: auto;
+
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.content-div-bottom {
+  border-bottom: 2px solid #3a3a3c;
+  margin-bottom: 175px;
+}
+
+.content-div h1 {
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-bottom: -10px;
+}
+
+.content-div h1.top-title {
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 25px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.content-div h2 {
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.menu-style {
+  margin: auto;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  display: block;
+}
+
+.align-right {
+  float: right;
+}
+
+.align-left {
+  float: left;
+}
+
+.rewards-images {
+  height: 200px;
+  width: 500px;
+
+  margin-bottom: 10px;
+}
+
+.rewards-img-col {
+  float: left;
+  width: 31%;
+  padding: 5px;
+}
+
+
+.footer-hodle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin-bottom: 0px;
+  padding-top: 15px;
+
+  margin-top: 100px;
+
+  background-color: #242424;
+
+  height: 60px;
+
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 15px;
+  color: white;
+}

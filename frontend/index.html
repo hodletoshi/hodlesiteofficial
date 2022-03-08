@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" id="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HODLE</title>
+
+    <meta name="description" content="Guess the HODLE in five tries to win daily rewards of cash and NFTs.">
+    <meta name="author" content="HODLE">
+
+    <meta property="og:title" content="HODLE">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hodle.io">
+    <meta property="og:description" content="Guess the HODLE in five tries to win daily rewards of cash and NFTs.">
+    <meta property="og:image" content="IMAGE HERE">
+
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <div class="headernav">
+      <a href="/" class="header-logo" data-link></a>
+      <a onclick="handleNav()" class="left-nav"><img src="/static/img/menu-icon.svg" style="height: 20px;"></img></a>
+      <a onclick="handleWallet()" class="right-nav"><img src="/static/img/wallet-icon.svg" style="height: 20px;"></img></a>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="handleNav()">&times;</a>
+      <a href="/" class="sidenav-logo" data-link></a>
+      <a href="/play" class="clickable" data-link style="margin-top: 35px; margin-bottom: 35px;"><img class="nav-icon" src="/static/img/play-icon.svg"></img>Play HODLE</a>
+      <a style="font-size: 13px; margin-top: 25px; font-weight: bold; margin-bottom: 30px; color: white;">HODLE COMMUNITY</a>
+      <a href="https://discord.com" target="_blank" class="clickable"><img class="nav-icon" src="/static/img/discord-icon.svg"></img>Discord</a>
+      <a href="https://twitter.com/hodlenftgame" target="_blank" class="clickable"><img class="nav-icon" src="/static/img/twitter-icon.svg"></img>Twitter</a>
+      <a href="https://opensea.io" target="_blank" class="clickable"><img class="nav-icon" src="/static/img/opensea-icon.svg"></img>OpenSea</a>
+      <a style="font-size: 13px; margin-top: 45px; font-weight: bold; margin-bottom: 30px; color: white;">LEARN MORE</a>
+      <a href="/mint" class="clickable" data-link><img class="nav-icon" src="/static/img/mint-icon.svg"></img>Mint</a>
+      <a href="/attributes" class="clickable" data-link><img class="nav-icon" src="/static/img/attributes-icon.svg"></img>Attributes</a>
+      <a href="/details" class="clickable" data-link><img class="nav-icon" src="/static/img/details-icon.svg"></img>Mint Details</a>
+      <a href="/rewards" class="clickable" data-link><img class="nav-icon" src="/static/img/rewards-icon.svg"></img>Rewards</a>
+      <a href="/instructions" class="clickable" data-link><img class="nav-icon" src="/static/img/how-icon.svg"></img>How To Play</a>
+      <a href="/faq" class="clickable" data-link><img class="nav-icon" src="/static/img/faq-icon.svg"></img>FAQ's</a>
+    </div>
+
+    <div id="app"></div>
+
+    <div class="footer-hodle">
+      <a class="footer-text">
+        <b>CREATED BY HODLERS FOR HODLERS.</b>
+      </a>
+      <p class="footer-text" style="margin-top: -5px;">
+        <span style="font-size: 12px;">© 2022 Hodle Games Inc.</span>
+      </p>
+    </div>
+    <script type="module" src="/static/js/index.js"></script>
+    <script>
+      /* Set the width of the side navigation to 250px */
+
+      var state = 0;
+
+      function handleNav() {
+        document.getElementById("mySidenav").classList.toggle('side-nav-open');
+
+        /*
+        if (state === 0) {
+          openNav();
+        } else {
+          closeNav();
+        }
+        */
+      }
+
+      function openNav() {
+        document.classList.toggle('open');
+        state = 1;
+      }
+
+      /* Set the width of the side navigation to 0 */
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        state = 0;
+      }
+    </script>
+    <script>
+      const teaserdiv = document.getElementById("teaser");
+
+      var images = [];
+      images[0] = "static/img/teaser1.png";
+      images[1] = "static/img/teaser2.png";
+      images[2] = "static/img/teaser3.png";
+      images[3] = "static/img/teaser4.png";
+      images[4] = "static/img/teaser5.png";
+      images[5] = "static/img/teaser6.png";
+      images[6] = "static/img/teaser7.png";
+      images[7] = "static/img/teaser8.png";
+      images[8] = "static/img/teaser9.png";
+      images[9] = "static/img/teaser10.png";
+
+      var bgColors = [];
+      bgColors[0] = "#161616";
+      bgColors[1] = "#f2ddde";
+      bgColors[2] = "#ffc920";
+      bgColors[3] = "#c7e7f1";
+      bgColors[4] = "#dcecbf";
+      bgColors[5] = "#fae4cc";
+      bgColors[6] = "#f99400";
+      bgColors[7] = "white";
+      bgColors[8] = "#595959";
+      bgColors[9] = "#69cb63";
+
+      var x = 0;
+
+      setInterval(function() {
+        const teaserimg = document.getElementById("teaser-img");
+
+        x = (x === images.length - 1) ? 0 : x + 1;
+        teaserimg.src = images[x];
+        teaser.style.backgroundColor = bgColors[x];
+      }, 1000);
+    </script>
+</body>
+</html>
