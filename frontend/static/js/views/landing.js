@@ -17,7 +17,7 @@ export default class extends AbstractView {
                 <img class="landing-about-logo"></img>
                 <span class="landing-about-title-text">&nbsp;?</span>
             </div>
-            <p>
+            <p style="padding-left: 35px; padding-right: 35px;">
             <b>HODLE</b> is an upcoming P2E NFT word game where you can win daily prizes of both cash and NFTs.
             <br><br>
             Only <b>HODLE Board</b> holders can play <b>HODLE</b>.

@@ -110,12 +110,14 @@
 
 html {
   scroll-behavior: smooth;
-  min-height: 100%;
-
-  position: relative;
 
   margin: 0;
   padding: 0;
+
+  min-width: max-content;
+
+  position:relative;
+  min-height: 100%;
 }
 
 body {
@@ -293,7 +295,7 @@ body {
 
 .landing-teaser {
   background-color: #161616;
-  width: 100vw;
+  /* width: 100vw; */
   height: 500px;
 }
 
@@ -459,6 +461,13 @@ body {
   padding: 5px;
 }
 
+.content-div .top-title {
+  width: 100%;
+}
+
+.content-div-bottom {
+  overflow-wrap: break-word;
+}
 
 .footer-hodle {
   position: absolute;
@@ -481,4 +490,28 @@ body {
 .footer-text {
   font-size: 15px;
   color: white;
+}
+
+@media screen and (max-width: 620px){
+  .content-div, .top-title {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .content-div, .top-title {
+    width: 350px;
+  }
+
+  .rewards-img-col {
+    width: 47%;
+    height: max-content;
+  }
+
+  .rewards-images {
+    overflow: hidden;
+    height: max-content;
+    width: auto;
+    margin-bottom: 25px;
+  }
 }
