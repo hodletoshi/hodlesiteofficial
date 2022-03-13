@@ -546,4 +546,8 @@ body {
     width: 300px;
     margin: auto;
   }
+
+  .landing-about-title {
+    padding-top: 0px;
+  }
 }
