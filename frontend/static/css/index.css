@@ -360,6 +360,12 @@ body {
   font-size: 20px;
 }
 
+.play-img {
+  height: 275px;
+  width: 275px;
+
+  content: url('../img/error_own_board.png');
+}
 
 .mint-img-div {
   margin: auto;
@@ -376,7 +382,7 @@ body {
   height: 275px;
   width: 275px;
 
-  content: url('../img/joindiscord_tiles.png');
+  content: url('../img/join_discord_tiles.png');
 }
 
 .mint-text .top-title {

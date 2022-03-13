@@ -10,16 +10,13 @@ export default class extends AbstractView {
       return `
           <h1 class="top-title">
             Game <b>Rewards</b>
-            <br>
-            <br>
-            <br>
-            <span class="title-subheader">
-              When you correctly guess the <b>HODLE</b>, you win prizes depending on your speed and number of guesses.
-              <br>
-              <br>
-              The prize pool for today's HODLE is <b>1.15 ETH</b>.
-            </span>
           </h1>
+          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+            When you correctly guess the <b>HODLE</b>, you win prizes that increase with your speed.
+            <br>
+            <br>
+            The prize pool for today's HODLE is <b>1.15 ETH</b>.
+          </h2>
           <div class="content-div">
             <h2 style="font-weight: normal; line-height: 20px;">
               Everyone who answers the <b>HODLE</b> correctly is able to mint an NFT of their winning <b>Daily Board</b> for free, directly into their wallet, through the Polygon (MATIC) network.<br><br>

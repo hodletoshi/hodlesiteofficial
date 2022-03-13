@@ -10,13 +10,12 @@ export default class extends AbstractView {
       return `
           <h1 class="top-title">
             Board <b>Attributes</b>
-            <br>
-            <br>
-            <br>
-            <span class="title-subheader">
-              Each <b>HODLE Board</b> is unique. Certain rare attributes provide in-game boosts and increase rewards.
-            </span>
           </h1>
+          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+            Each <b>HODLE Board</b> is unique.
+            <br>
+            Certain rare attributes provide in-game boosts and increase rewards.
+          </h2>
           <div class="content-div">
             <h1 class="top-title">Themes</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
@@ -71,7 +70,7 @@ export default class extends AbstractView {
           <div class="content-div">
             <h1 class="top-title">Mode</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The mode of your <b>HODLE Board</b> determines the color of your correct, hint, and incorrect tiles.
+              The mode of your <b>HODLE Board</b> determines the color of your correct, hint, and incorrect tiles when playing <b>HODLE</b>.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
               <span style="color:#717171;"><b>Dark</b><span style="float:right;">30.0 %</span></span>
@@ -160,7 +159,7 @@ export default class extends AbstractView {
           <div class="content-div content-div-bottom">
             <h1 class="top-title">Tiles</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The tiles attribute of your <b>HODLE Board</b> indicate how close your second guess was to the <b>HODLE</b>.
+              The tiles attribute of your <b>HODLE Board</b> indicates how close your second guess was to the <b>HODLE</b>.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px; color: #6ECF60;">
               <b>Genius</b><span style="float:right;">5.0 %</span>
