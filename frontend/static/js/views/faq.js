@@ -34,8 +34,8 @@ export default class extends AbstractView {
               <h2>0.065 ETH + Gas.</h2>
             </div>
             <div class="content-div content-div-bottom">
-              <h1>How many HODLE NFTs can I mint?</h1>
-              <h2>You can mint up to 5 HODLE NFTs. There are no limits on how many you can hold in your wallet after mint - so you can acquire as many as you want on OpenSea once mint is closed.</h2>
+              <h1>How many HODLE Boards can I mint?</h1>
+              <h2>You can mint up to 5 HODLE Board NFTs. There are no limits on how many you can hold in your wallet after mint - so you can acquire as many as you want on OpenSea once mint is closed.</h2>
             </div>
         `;
     }
