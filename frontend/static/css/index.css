@@ -173,15 +173,16 @@ body {
 }
 
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 350px; /* 0 width - change this with JavaScript */
+  width: 350px;
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  top: 0; /* Stay at the top left and stretch to bottom of screen*/
+  bottom: 0;
   left: 0;
   background-color: #121213;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
+  padding-bottom: 60px;
   transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
 
   z-index: 900;
@@ -365,7 +366,7 @@ body {
   margin-top: 105px;
   margin-bottom: 0px;
 
-  width: 500px;
+  /* width: 500px; */
   height: 350px;
   text-align: center;
   justify-content: center;
@@ -492,6 +493,10 @@ body {
   color: white;
 }
 
+.top-title {
+  line-height: 30px;
+}
+
 @media screen and (max-width: 620px){
   .content-div, .top-title {
     width: 400px;
@@ -513,5 +518,32 @@ body {
     height: max-content;
     width: auto;
     margin-bottom: 25px;
+  }
+
+  .landing-teaser {
+    height: 400px;
+    width: 100%;
+  }
+
+  .landing-teaser-img {
+    height: 350px;
+    width: 350px;
+  }
+
+  .landing-about-logo {
+    height: 35px;
+  }
+
+  .landing-about p {
+    width: 300px;
+  }
+
+  .sidenav {
+    width: 250px;
+  }
+
+  .mint-text .title-subheader {
+    width: 300px;
+    margin: auto;
   }
 }

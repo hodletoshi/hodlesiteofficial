@@ -10,18 +10,15 @@ export default class extends AbstractView {
         return `
           <h1 class="top-title">
             Mint <b>Details</b>
-            <br>
-            <br>
-            <br>
-            <span class="title-subheader">
-              Minting will take place on the official <b>HODLE</b> website at <b>Time</b> on <b>Date</b>.
-              <br>
-              <br>
-              Minting will <b>NOT</b> open early.
-              <br>
-              If you see an 'Early Access' opportunity or receive the link to a 'Limited Mint'... DO NOT CLICK - it's a scam.
-            </span>
           </h1>
+          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+            Minting will take place on the official <b>HODLE</b> website at <b>Time</b> on <b>Date</b>.
+            <br>
+            <br>
+            Minting will <b>NOT</b> open early.
+            <br>
+            If you see an 'Early Access' opportunity or receive the link to a 'Limited Mint'... DO NOT CLICK - it's a scam.
+          </h2>
           <div class="content-div">
             <h2 style="font-weight: normal; line-height: 20px;">
               To buy <span style="color:#93A2CC">Ethereum (ETH)</span>, use a secure crypto exchange.

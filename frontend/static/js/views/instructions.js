@@ -10,16 +10,13 @@ export default class extends AbstractView {
         return `
           <h1 class="top-title">
             Guess the <b>HODLE</b> in five tries.
-            <br>
-            <br>
-            <br>
-            <span class="title-subheader">
-              Each guess must be a five letter word. <b>HODLE</b> includes crypto-related phrases, words, and abbreviations.
-              <br>
-              <br>
-              There is a new <b>HODLE</b> every day at 0:00 EST.
-            </span>
           </h1>
+          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+            Each guess must be a five letter word. <b>HODLE</b> includes crypto-related phrases, words, and abbreviations.
+            <br>
+            <br>
+            There is a new <b>HODLE</b> every day at 0:00 EST.
+          </h2>
           <div class="content-div">
             <h2 style="font-weight: normal; line-height: 20px;">
               After each guess, the color of the tiles will change to reveal how close your guess was to the HODLE.<br><br>

@@ -8,7 +8,7 @@ export default class extends AbstractView {
 
     async getHtml() {
         return `
-            <h1 class="top-title">Frequently Asked <b>Questions</b></h1>
+            <h1 class="top-title" style="line-height: 40px;">Frequently Asked <b>Questions</b></h1>
             <div class="content-div">
               <h1>When is the mint date?</h1>
               <h2>Minting will take place on Date at Date Time.</h2>
