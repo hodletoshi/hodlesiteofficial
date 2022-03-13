@@ -11,11 +11,11 @@ export default class extends AbstractView {
           <h1 class="top-title">
             Game <b>Rewards</b>
           </h1>
-          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+          <h2 class="title-subheader blurred" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
             When you correctly guess the <b>HODLE</b>, you win prizes that increase with your speed.
             <br>
             <br>
-            The prize pool for today's HODLE is <b>1.15 ETH</b>.
+            The prize pool for today's HODLE is <span class="unselectable">?.??</span> ETH.
           </h2>
           <div class="content-div">
             <h2 style="font-weight: normal; line-height: 20px;">
@@ -37,7 +37,9 @@ export default class extends AbstractView {
             </div>
             <h2 style="line-height: 20px;">
               We are working on adding more awesome features to NFT rewards soon.
-              This includes the ability to add correctly guessed words onto your <b>HODLE Board</b>, showing off streaks on both your<br><b>HODLE Board</b> & <b>Daily Board</b>, and more.
+              This includes the ability to add correctly guessed words onto your <b>HODLE Board</b>, showing off streaks on both your
+              <br>
+              <b>HODLE Board</b> & <b>Daily Board</b>, and more.
             </h2>
           </div>
           <div class="content-div content-div-bottom">
