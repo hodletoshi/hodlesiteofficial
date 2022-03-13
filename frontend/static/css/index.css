@@ -550,4 +550,8 @@ body {
   .landing-about-title {
     padding-top: 0px;
   }
+
+  .mint-text {
+    margin-bottom: 50px;
+  }
 }
