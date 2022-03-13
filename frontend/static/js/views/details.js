@@ -47,7 +47,7 @@ export default class extends AbstractView {
               <b>'Add Custom Token'</b> section.
               <br>
               <br>
-              <span style="color:#cab459;">0x1111111hhsdbfsdfsdfnakjsdfnsdnkdgsdfgsdfg156</span>
+              <span style="color:#cab459;">NOT AVAILABLE YET</span>
               <br>
               <br>
               Then, wait a few minutes for the <b>HODLE Board</b>(s) to show up in your wallet. At this point, you can also view your <b>HODLE Board</b>(s) on <span style="color:#15B2E5"><b>OpenSea</b></span>.
