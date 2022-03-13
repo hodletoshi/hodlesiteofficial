@@ -11,8 +11,8 @@ export default class extends AbstractView {
           <h1 class="top-title">
             Mint <b>Details</b>
           </h1>
-          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
-            Minting will take place on the official <b>HODLE</b> website at <b>Time</b> on <b>Date</b>.
+          <h2 class="title-subheader blurred" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+            Minting will take place on the official <b>HODLE</b> website at <span class="unselectable">REDACTED EST</span> on <span class="unselectable">REDACTED</span>.
             <br>
             <br>
             Minting will <b>NOT</b> open early.

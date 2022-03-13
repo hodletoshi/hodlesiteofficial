@@ -20,9 +20,7 @@ export default class extends AbstractView {
             <p style="padding-left: 35px; padding-right: 35px;">
             <b>HODLE</b> is an upcoming P2E NFT word game where you can win daily prizes of both cash and NFTs.
             <br><br>
-            Only <b>HODLE Board</b> holders can play <b>HODLE</b>.
-            <br>
-            Mint opens <b>March 23</b> at 00:00 EST (05:00 UTC).
+            Only <b>HODLE Board</b> owners can play <b>HODLE</b>.
             <br><br>
             You have five tries to guess a five-letter word related to cryptocurrencies and NFTs. You receive feedback on each guess in the shape of different coloured tiles.
             <br><br>

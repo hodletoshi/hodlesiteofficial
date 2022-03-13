@@ -503,6 +503,37 @@ body {
   line-height: 30px;
 }
 
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.blurred span {
+  color: transparent;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 1);
+}
+
+.redacted span {
+  position: relative;
+  white-space: pre;
+}
+
+.redacted span:after {
+  background: white;
+  border-radius: 0.1em;
+  box-shadow: 0 0 1px rgba(0,0,0,0.35);
+  content: " ";
+  width: 100%;
+  height: 1.2em;
+  left: 0;
+  position: absolute;
+  transform: skewY(-5deg) rotate(5deg);
+}
+
 @media screen and (max-width: 620px){
   .content-div, .top-title {
     width: 400px;
