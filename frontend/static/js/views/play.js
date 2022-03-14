@@ -69,7 +69,12 @@ function getTileColor(letter, index) {
 }
 
 function getShareCopy() {
-  var returnStr = `HODLE #1 ${guessedWordCount}/5\n\n`;
+  var returnStr = "";
+  if (guessedWordCount > 5) {
+    returnStr = `HODLE #1 X/5\n\n`;
+  } else {
+    returnStr = `HODLE #1 ${guessedWordCount}/5\n\n`;
+  }
 
   for (var i = 1; i <= 25; i++) {
     const rawSquare = document.getElementById(`${i}`);
@@ -136,13 +141,18 @@ function handleSubmitWord() {
   if (currentWord === word) {
     const sharecopy = getShareCopy();
 
-    if (setTimeout(function() { confirm("Congratulations! Press 'OK' to copy the answers to your clipboard.") }, 2000) {
+    if (setTimeout(function() { confirm("Congratulations! Press 'OK' to copy your board to your clipboard.") }, 2000) {
       navigator.clipboard.writeText(sharecopy);
     }
   }
 
   if (guessedWords.length === 6) {
-    window.alert(`Sorry, you have no more guesses! The word is ${word}.`);
+
+    const sharecopy = getShareCopy();
+
+    if (setTimeout(function() { confirm(`Sorry, you have no more guesses! The word is ${word}.\nPress 'OK' to copy your board to your clipboard.`) }, 2000) {
+      navigator.clipboard.writeText(sharecopy);
+    }
   }
 
   guessedWords.push([]);
