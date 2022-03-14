@@ -268,7 +268,7 @@ export default class extends AbstractView {
       <link rel="stylesheet" href="/static/css/game.css">
       <div id="container">
         <div id="game">
-          <div id="board-container" style="margin-top: 50px; margin-bottom: 50px;">
+          <div id="board-container">
             <div id="board">
               <div class="square" id="1"></div>
               <div class="square" id="2"></div>

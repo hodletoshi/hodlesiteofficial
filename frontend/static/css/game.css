@@ -56,6 +56,9 @@ header {
   align-items: center;
   flex-grow: 1;
   overflow: hidden;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #board {
@@ -148,5 +151,12 @@ header {
   }
   100% {
     transform: rotateX(0);
+  }
+}
+
+@media screen and (max-height: 900px) {
+  #board-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }
