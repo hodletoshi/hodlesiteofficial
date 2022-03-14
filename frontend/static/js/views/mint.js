@@ -7,6 +7,8 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
+      document.querySelector('#hodle-footer').style.opacity = "100%";
+
         return `
             <div class="mint-img-div">
               <img class="mint-img"></img>

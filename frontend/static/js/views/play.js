@@ -264,6 +264,8 @@ export default class extends AbstractView {
 
       setTimeout(startFunc, 1000)
 
+      document.querySelector('#hodle-footer').style.opacity = "0%";
+
       return `
       <link rel="stylesheet" href="/static/css/game.css">
       <div id="container">

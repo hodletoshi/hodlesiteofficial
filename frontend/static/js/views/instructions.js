@@ -7,6 +7,8 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
+      document.querySelector('#hodle-footer').style.opacity = "100%";
+
         return `
           <h1 class="top-title">
             Guess the <b>HODLE</b> in five tries.

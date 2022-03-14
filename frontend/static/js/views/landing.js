@@ -7,6 +7,8 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
+      document.querySelector('#hodle-footer').style.opacity = "100%";
+
       return `
           <div class="landing-teaser" id="teaser">
             <img class="landing-teaser-img" id="teaser-img" src="static/img/teaser1.png"></img>
