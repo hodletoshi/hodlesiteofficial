@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "bubba";
+let word = "frens";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -81,14 +81,21 @@ function handleSubmitWord() {
   const firstLetterId = guessedWordCount * 5 + 1;
   const interval = 300;
   currentWordArr.forEach((letter, index) => {
+    const tileColor = getTileColor(letter, index);
+
+    if (tileColor == "rgb(58, 58, 60)") {
+      setTimeout(() => {
+        document.querySelector(`#${letter}`).disabled = true;
+        document.querySelector(`#${letter}`).style.backgroundColor = "#3a3a3c";
+      }, 1700);
+    }
+
     setTimeout(() => {
       console.log("GETTING COLOR");
       const letterId = firstLetterId + index;
       const letterEl = document.getElementById(letterId);
 
       letterEl.classList.add("flipin");
-      const tileColor = getTileColor(letter, index);
-
       setTimeout(function() { letterEl.style = `background-color:${tileColor};border-color:${tileColor}` }, 250);
     }, interval * index);
   });
@@ -275,7 +282,7 @@ export default class extends AbstractView {
             <div id="board">
               <div class="square" id="1"></div>
               <div class="square" id="2"></div>
-              <div class="square " id="3"></div>
+              <div class="square" id="3"></div>
               <div class="square" id="4"></div>
               <div class="square" id="5"></div>
               <div class="square" id="6"></div>
@@ -303,39 +310,39 @@ export default class extends AbstractView {
 
           <div id="keyboard-container">
             <div class="keyboard-row">
-              <button data-key="q">q</button>
-              <button data-key="w">w</button>
-              <button data-key="e">e</button>
-              <button data-key="r">r</button>
-              <button data-key="t">t</button>
-              <button data-key="y">y</button>
-              <button data-key="u">u</button>
-              <button data-key="i">i</button>
-              <button data-key="o">o</button>
-              <button data-key="p">p</button>
+              <button id="q" data-key="q">q</button>
+              <button id="w" data-key="w">w</button>
+              <button id="e" data-key="e">e</button>
+              <button id="r" data-key="r">r</button>
+              <button id="t" data-key="t">t</button>
+              <button id="y" data-key="y">y</button>
+              <button id="u" data-key="u">u</button>
+              <button id="i" data-key="i">i</button>
+              <button id="o" data-key="o">o</button>
+              <button id="p" data-key="p">p</button>
             </div>
             <div class="keyboard-row">
               <div class="spacer-half"></div>
-              <button data-key="a">a</button>
-              <button data-key="s">s</button>
-              <button data-key="d">d</button>
-              <button data-key="f">f</button>
-              <button data-key="g">g</button>
-              <button data-key="h">h</button>
-              <button data-key="j">j</button>
-              <button data-key="k">k</button>
-              <button data-key="l">l</button>
+              <button id="a" data-key="a">a</button>
+              <button id="s" data-key="s">s</button>
+              <button id="d" data-key="d">d</button>
+              <button id="f" data-key="f">f</button>
+              <button id="g" data-key="g">g</button>
+              <button id="h" data-key="h">h</button>
+              <button id="j" data-key="j">j</button>
+              <button id="k" data-key="k">k</button>
+              <button id="l" data-key="l">l</button>
               <div class="spacer-half"></div>
             </div>
             <div class="keyboard-row">
               <button data-key="enter" class="wide-button">Enter</button>
-              <button data-key="z">z</button>
-              <button data-key="x">x</button>
-              <button data-key="c">c</button>
-              <button data-key="v">v</button>
-              <button data-key="b">b</button>
-              <button data-key="n">n</button>
-              <button data-key="m">m</button>
+              <button id="z" data-key="z">z</button>
+              <button id="x" data-key="x">x</button>
+              <button id="c" data-key="c">c</button>
+              <button id="v" data-key="v">v</button>
+              <button id="b" data-key="b">b</button>
+              <button id="n" data-key="n">n</button>
+              <button id="m" data-key="m">m</button>
               <button data-key="del" class="wide-button">Del</button>
             </div>
           </div>
