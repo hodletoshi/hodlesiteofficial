@@ -71,10 +71,10 @@ function getTileColor(letter, index) {
 function getShareCopy() {
   var returnStr = "";
   if (guessedWordCount > 5) {
-    returnStr = `HODLE #1 X/5\n\n`;
+    returnStr = `HODLE 1  X/5\n\n`;
 
   } else {
-    returnStr = `HODLE #1 ${guessedWordCount}/5\n\n`;
+    returnStr = `HODLE 1  ${guessedWordCount}/5\n\n`;
   }
 
   for (var i = 1; i <= 25; i++) {
@@ -109,6 +109,7 @@ function handleSubmitWord() {
   const currentWordArr = getCurrentWordArr();
   if (currentWordArr.length !== 5) {
     window.alert("Word must be 5 letters");
+    return;
   }
 
   const currentWord = currentWordArr.join("");
@@ -141,23 +142,19 @@ function handleSubmitWord() {
 
   if (currentWord === word) {
     const sharecopy = getShareCopy();
+    navigator.clipboard.writeText(sharecopy);
 
     setTimeout(function() {
-      if(confirm("Congratulations! Press 'OK' to copy your board to your clipboard.")) {
-        navigator.clipboard.writeText(sharecopy);
-      }
+      confirm("Congratulations! Your board was copied to your clipboard.");
     }, 2000);
   }
 
   if (guessedWords.length === 6) {
-
     const sharecopy = getShareCopy();
+    navigator.clipboard.writeText(sharecopy);
 
-    setTimeout(
-      function() {
-        if (confirm(`Sorry, you have no more guesses! The word is ${word}.\nPress 'OK' to copy your board to your clipboard.`)) {
-          navigator.clipboard.writeText(sharecopy);
-        }
+    setTimeout(function() {
+      confirm(`Sorry, you have no more guesses! The word is ${word}.\nPress 'OK' to copy your board to your clipboard.`);
     }, 2000);
   }
 
@@ -220,14 +217,21 @@ function createSquares() {
 
 function handleDeleteLetter() {
   const currentWordArr = getCurrentWordArr();
-  const removedLetter = currentWordArr.pop();
 
-  guessedWords[guessedWords.length - 1] = currentWordArr;
+  if (currentWordArr.length >= 1) {
+    const removedLetter = currentWordArr.pop();
 
-  const lastLetterEl = document.getElementById(String(availableSpace - 1));
+    console.log("GUESSED WORDS:");
+    console.log(guessedWords);
+    console.log(currentWordArr);
 
-  lastLetterEl.textContent = "";
-  availableSpace = availableSpace - 1;
+    guessedWords[guessedWords.length - 1] = currentWordArr;
+
+    const lastLetterEl = document.getElementById(String(availableSpace - 1));
+
+    lastLetterEl.textContent = "";
+    availableSpace = availableSpace - 1;
+  }
 }
 
 async function handleStart() {
