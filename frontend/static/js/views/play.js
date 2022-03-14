@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "wagmi";
+let word = "bubba";
 let guessedWordCount = 0;
 
 var keys = null;
