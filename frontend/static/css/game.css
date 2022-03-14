@@ -165,4 +165,8 @@ header {
     min-width: 50px;
     min-height: 50px;
   }
+
+  .keyboard-row button {
+    height: 50px;
+  }
 }
