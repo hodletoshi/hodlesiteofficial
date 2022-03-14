@@ -307,7 +307,7 @@ export default class extends AbstractView {
           </div>
           <div class="mint-text">
             <h1 class="top-title">Oops! You need to own a <b>HODLE Board</b> to play <b>HODLE</b>.</h1>
-            <h2 class="title-subheader">Join our <a href="https://discord.gg" target="_blank"><span style="text-decoration: underline; cursor: pointer;">Discord</span></a> to find out when the <b>HODLE Board</b> mint opens.</h2>
+            <h2 class="title-subheader">Join our <a href="https://discord.com/invite/PZbZ4yeTrt" target="_blank"><span style="text-decoration: underline; cursor: pointer;">Discord</span></a> to find out when the <b>HODLE Board</b> mint opens.</h2>
           </div>
       `;
 
