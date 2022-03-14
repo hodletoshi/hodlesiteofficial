@@ -8,6 +8,7 @@ export default class extends AbstractView {
 
     async getHtml() {
       document.querySelector('#hodle-footer').style.opacity = "100%";
+      document.querySelector('#hodle-footer').style.height = "60px";
 
         return `
             <h1 class="top-title" style="line-height: 40px;">Frequently Asked <b>Questions</b></h1>
