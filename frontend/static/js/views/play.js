@@ -72,6 +72,7 @@ function getShareCopy() {
   var returnStr = "";
   if (guessedWordCount > 5) {
     returnStr = `HODLE #1 X/5\n\n`;
+
   } else {
     returnStr = `HODLE #1 ${guessedWordCount}/5\n\n`;
   }
@@ -141,18 +142,23 @@ function handleSubmitWord() {
   if (currentWord === word) {
     const sharecopy = getShareCopy();
 
-    if (setTimeout(function() { confirm("Congratulations! Press 'OK' to copy your board to your clipboard.") }, 2000) {
-      navigator.clipboard.writeText(sharecopy);
-    }
+    setTimeout(function() {
+      if(confirm("Congratulations! Press 'OK' to copy your board to your clipboard.")) {
+        navigator.clipboard.writeText(sharecopy);
+      }
+    }, 2000);
   }
 
   if (guessedWords.length === 6) {
 
     const sharecopy = getShareCopy();
 
-    if (setTimeout(function() { confirm(`Sorry, you have no more guesses! The word is ${word}.\nPress 'OK' to copy your board to your clipboard.`) }, 2000) {
-      navigator.clipboard.writeText(sharecopy);
-    }
+    setTimeout(
+      function() {
+        if (confirm(`Sorry, you have no more guesses! The word is ${word}.\nPress 'OK' to copy your board to your clipboard.`)) {
+          navigator.clipboard.writeText(sharecopy);
+        }
+    }, 2000);
   }
 
   guessedWords.push([]);
