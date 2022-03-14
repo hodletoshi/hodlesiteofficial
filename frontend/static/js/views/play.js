@@ -68,6 +68,37 @@ function getTileColor(letter, index) {
   return "rgb(181, 159, 59)";
 }
 
+function getShareCopy() {
+  var returnStr = `HODLE #1 ${guessedWordCount}/5\n\n`;
+
+  for (var i = 1; i <= 25; i++) {
+    const rawSquare = document.getElementById(`${i}`);
+
+    if (rawSquare.innerHTML == "") {
+      break;
+    }
+
+    if (rawSquare.style.backgroundColor == "rgb(58, 58, 60)") {
+      // Black
+      returnStr += "⬛";
+
+    } else if (rawSquare.style.backgroundColor == "rgb(181, 159, 59)") {
+      // Yellow
+      returnStr += "🟨";
+
+    } else {
+      // Green
+      returnStr += "🟩";
+    }
+
+    if (i % 5 == 0) {
+      returnStr += '\n';
+    }
+  }
+
+  return returnStr;
+}
+
 function handleSubmitWord() {
   const currentWordArr = getCurrentWordArr();
   if (currentWordArr.length !== 5) {
@@ -103,7 +134,11 @@ function handleSubmitWord() {
   guessedWordCount += 1;
 
   if (currentWord === word) {
-    setTimeout(function() { window.alert("Congratulations!") }, 2000);
+    const sharecopy = getShareCopy();
+
+    if (setTimeout(function() { confirm("Congratulations! Press 'OK' to copy the answers to your clipboard.") }, 2000) {
+      navigator.clipboard.writeText(sharecopy);
+    }
   }
 
   if (guessedWords.length === 6) {
