@@ -4,7 +4,7 @@ export default class {
     }
 
     setTitle(title) {
-        document.title = title + " | HODLE";
+        document.title = title + " | HODLE - The daily NFT & crypto game.";
     }
 
     async getHtml() {
