@@ -65,7 +65,7 @@ export default class extends AbstractView {
             <b>ALL WINNERS</b><span style="float:right; letter-spacing: 0px;">1x Weighted Share</span>
             </p>
             <h2 style="font-weight: normal; line-height: 20px;">
-              To claim your share of the daily <b>HODLE</b> prize pool, all you need to do is answer correctly. Earnings will be distributed to your wallet in MATIC on a weekly basis to save gas.
+              To claim your share of the daily <b>HODLE</b> prize pool, all you need to do is answer correctly. Earnings will be distributed to your wallet in WETH on a weekly basis to save gas.
             </h2>
           </div>
       `;
