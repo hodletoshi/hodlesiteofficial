@@ -20,6 +20,32 @@ export default class extends AbstractView {
             <br>
             The prize pool for today's HODLE is <span class="unselectable">?.??</span> ETH.
           </h2>
+          <div class="content-div content-div-bottom">
+            <h2 style="font-weight: normal; line-height: 20px;">
+              Everyone who answers the <b>HODLE</b> correctly automatically is eligible to be a part of the daily ETH prize pool.
+              <br>
+              <br>
+              The faster you answer, the more you earn.
+              <br>
+              <br>
+              If you solve the HODLE, each Board you hold will enter the prize pool. The more Boards you hold, the higher your daily rewards.
+            </h2>
+            <p style="text-align:left; margin-top: 50px; margin-bottom: 60px; letter-spacing: 1.5px;">
+            <span style="color:#F0C030;"><b>FIRST 100</b><span style="float:right; letter-spacing: 0px;">5x Weighted Share</span></span>
+            <br>
+            <br>
+            <span style="color:#AAAAAA;"><b>FIRST 500</b><span style="float:right; letter-spacing: 0px;">3x Weighted Share</span></span>
+            <br>
+            <br>
+            <span style="color:#D47C21;"><b>FIRST 1000</b><span style="float:right; letter-spacing: 0px;"> 1.5x Weighted Share</span></span>
+            <br>
+            <br>
+            <b>ALL WINNERS</b><span style="float:right; letter-spacing: 0px;">1x Weighted Share</span>
+            </p>
+            <h2 style="font-weight: normal; line-height: 20px;">
+              To claim your share of the daily <b>HODLE</b> prize pool, all you need to do is answer correctly. Earnings will be distributed to your wallet in WETH on a weekly basis to save gas.
+            </h2>
+          </div>
           <div class="content-div">
             <h2 style="font-weight: normal; line-height: 20px;">
               Everyone who answers the <b>HODLE</b> correctly is able to mint an NFT of their winning <b>Daily Board</b> for free, directly into their wallet, through the Polygon (MATIC) network.<br><br>
@@ -43,29 +69,6 @@ export default class extends AbstractView {
               This includes the ability to add correctly guessed words onto your <b>HODLE Board</b>, showing off streaks on both your
               <br>
               <b>HODLE Board</b> & <b>Daily Board</b>, and more.
-            </h2>
-          </div>
-          <div class="content-div content-div-bottom">
-            <h2 style="font-weight: normal; line-height: 20px;">
-              Everyone who answers the <b>HODLE</b> correctly automatically is eligible to be a part of the daily ETH prize pool.
-              <br>
-              <br>
-              The faster you answer, the higher your daily rewards.
-            </h2>
-            <p style="text-align:left; margin-top: 50px; margin-bottom: 60px; letter-spacing: 1.5px;">
-            <span style="color:#F0C030;"><b>FIRST 100</b><span style="float:right; letter-spacing: 0px;">5x Weighted Share</span></span>
-            <br>
-            <br>
-            <span style="color:#AAAAAA;"><b>FIRST 500</b><span style="float:right; letter-spacing: 0px;">3x Weighted Share</span></span>
-            <br>
-            <br>
-            <span style="color:#D47C21;"><b>FIRST 1000</b><span style="float:right; letter-spacing: 0px;"> 1.5x Weighted Share</span></span>
-            <br>
-            <br>
-            <b>ALL WINNERS</b><span style="float:right; letter-spacing: 0px;">1x Weighted Share</span>
-            </p>
-            <h2 style="font-weight: normal; line-height: 20px;">
-              To claim your share of the daily <b>HODLE</b> prize pool, all you need to do is answer correctly. Earnings will be distributed to your wallet in WETH on a weekly basis to save gas.
             </h2>
           </div>
       `;
