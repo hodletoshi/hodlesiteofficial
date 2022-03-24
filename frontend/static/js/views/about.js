@@ -27,7 +27,7 @@ export default class extends AbstractView {
           </h2>
           <div class="content-div content-div-bottom">
             <h2 style="font-weight: normal; line-height: 20px;">
-              <b>HODLE</b> is an upcoming P2E (S2E) NFT word game where you can win daily prizes of both cash and NFTs.
+              <b>HODLE</b> is an upcoming P2E (S2E) NFT word game where you can win daily prizes of both cash ($ETH) and NFTs.
               <br><br>
               Only <b>HODLE Board</b> owners can earn rewards from <b>HODLE</b>.
               <br><br>
