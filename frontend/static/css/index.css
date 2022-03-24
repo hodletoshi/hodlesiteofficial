@@ -150,7 +150,7 @@ body {
 
   height: 50px;
 
-  z-index: 1000;
+  z-index: 1500;
 
   text-align: center;
 
@@ -175,7 +175,7 @@ body {
 .sidenav {
   width: 350px;
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 9000; /* Stay on top */
   top: 0; /* Stay at the top left and stretch to bottom of screen*/
   bottom: 0;
   left: 0;
@@ -184,8 +184,6 @@ body {
   padding-top: 60px; /* Place content 60px from the top */
   padding-bottom: 60px;
   transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
-
-  z-index: 900;
 
   margin-top: 64px;
 
@@ -303,8 +301,8 @@ body {
 .landing-teaser-img {
   margin-top: 25px;
 
-  height: 450px;
-  width: 450px;
+  height: 700px;
+  width: 700px;
 }
 
 .landing-about {
@@ -540,7 +538,7 @@ body {
 }
 
 .what-is-hodle-bottom {
-  float: right; z-index: 9000; width: 550px; height: 100px; background-color: #2F2F2F; bottom: 25px; left: 25px; position: fixed;
+  float: right; z-index: 1000; width: 550px; height: 100px; background-color: #2F2F2F; bottom: 25px; left: 25px; position: fixed;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
@@ -591,7 +589,7 @@ body {
 }
 
 .discord-bottom {
-  float: right; z-index: 9000; width: 400px; height: 100px; background-color: #2F2F2F; bottom: 25px; right: 25px; position: fixed;
+  float: right; z-index: 1000; width: 400px; height: 100px; background-color: #2F2F2F; bottom: 25px; right: 25px; position: fixed;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
@@ -636,26 +634,79 @@ body {
   cursor: pointer;
 }
 
-.landing-teaser {
-  margin-left: auto; margin-right: auto;
-  width: 100%;
-}
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1010px) {
   .what-is-hodle-bottom {
-    bottom: 140px;
+    bottom: 100px;
     width: auto;
-    right: 25px;
+    right: 15px;
+    left: 15px;
+    height: 75px;
+  }
+
+  .what-is-hodle-tile {
+    left: 10px;
+    width: 85px;
+    height: 85px;
   }
 
   .what-is-hodle-subtitle {
     float: left;
-    margin-left: 150px;
+    margin-left: 110px;
+    margin-top: 16px;
+    line-height: 20px;
+    font-size: 15px;
+  }
+
+  .what-is-hodle-title {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .what-is-hodle-button {
+    width: 150px;
+    right: 9px;
+    top: 10px;
+    bottom: 10px;
+    font-size: 15px;
   }
 
   .discord-bottom {
     width: auto;
-    left: 25px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    height: 75px;
+  }
+
+  .discord-subtitle {
+    margin-top: 23px;
+    line-height: 15px;
+    font-size: 15px;
+    margin-left: 15px;
+  }
+
+  .discord-title {
+    font-size: 20px;
+  }
+
+  .discord-button {
+    right: 9px;
+    bottom: 10px;
+    top: 10px;
+    width: 55px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .landing-teaser-img {
+    width: 80vw;
+    aspect-ratio: 1;
+    height: auto;
+
+    margin-top: calc(80vw - 200px);
   }
 }
 
@@ -670,6 +721,11 @@ body {
     width: 350px;
   }
 
+  .landing-teaser-img {
+    width: 100vw;
+    margin-top: 15vh;
+  }
+
   .rewards-img-col {
     width: 47%;
     height: max-content;
@@ -680,20 +736,6 @@ body {
     height: max-content;
     width: auto;
     margin-bottom: 25px;
-  }
-
-  .landing-teaser {
-  }
-
-  .landing-teaser-img {
-    /* height: 350px;
-    width: 350px; */
-    margin-left: auto; margin-right: auto;
-    width: 100%;
-  }
-
-  .landing-about-logo {
-    height: 35px;
   }
 
   .landing-about p {
@@ -715,5 +757,17 @@ body {
 
   .mint-text {
     margin-bottom: 150px;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .what-is-hodle-button {
+    width: 120px;
+  }
+
+  .landing-teaser-img {
+    width: 100vw;
+    margin-top: 10vh;
   }
 }

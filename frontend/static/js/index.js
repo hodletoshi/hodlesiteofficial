@@ -6,6 +6,7 @@ import HowToPlay from "./views/instructions.js";
 import Faq from "./views/faq.js";
 import Rewards from "./views/rewards.js";
 import Attributes from "./views/attributes.js";
+import About from "./views/about.js"
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -27,6 +28,7 @@ const router = async () => {
     const routes = [
         { path: "/", view: Landing },
         { path: "/play", view: Play },
+        { path: "/about", view: About },
         { path: "/mint", view: Mint },
         { path: "/details", view: Details },
         { path: "/instructions", view: HowToPlay },
