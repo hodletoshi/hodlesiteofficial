@@ -117,7 +117,7 @@ html {
   min-width: max-content;
 
   position:relative;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -539,6 +539,126 @@ body {
   transform: skewY(-5deg) rotate(5deg);
 }
 
+.what-is-hodle-bottom {
+  float: right; z-index: 9000; width: 550px; height: 100px; background-color: #2F2F2F; bottom: 25px; left: 25px; position: fixed;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.what-is-hodle-tile {
+  float: left;
+  left: 20px;
+  bottom: 0px;
+  position: absolute;
+  margin-right: 0px;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.what-is-hodle-subtitle {
+  margin-left: -120px;
+  margin-top: 20px;
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: normal;
+  display: inline-block;
+  color: #ABABAB;
+}
+
+.what-is-hodle-title {
+  font-weight: bold;
+  color: white;
+  margin-left: 25px;
+  font-size: 30px;
+}
+
+.what-is-hodle-button {
+  background-color: #538D4E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  position: absolute;
+  font-family:'Clear Sans';
+  font-weight: bold;
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.discord-bottom {
+  float: right; z-index: 9000; width: 400px; height: 100px; background-color: #2F2F2F; bottom: 25px; right: 25px; position: fixed;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+  text-align: left;
+
+  background-image: url('../img/discord_banner_bg3.png');
+  background-size: cover;
+  background-position: right;
+}
+
+.discord-subtitle {
+  margin-top: 25px;
+  line-height: 25px;
+  font-size: 20px;
+  font-weight: normal;
+  display: inline-block;
+  color: white;
+
+  margin-left: 25px;
+}
+
+.discord-title {
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+}
+
+.discord-button {
+  background-color: #6E3DB5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  position: absolute;
+  font-family:'Clear Sans';
+  font-weight: bold;
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.landing-teaser {
+  margin-left: auto; margin-right: auto;
+  width: 100%;
+}
+
+@media screen and (max-width: 1010px) {
+  .what-is-hodle-bottom {
+    bottom: 140px;
+    width: auto;
+    right: 25px;
+  }
+
+  .what-is-hodle-subtitle {
+    float: left;
+    margin-left: 150px;
+  }
+
+  .discord-bottom {
+    width: auto;
+    left: 25px;
+  }
+}
+
 @media screen and (max-width: 620px){
   .content-div, .top-title {
     width: 400px;
@@ -563,13 +683,13 @@ body {
   }
 
   .landing-teaser {
-    height: 400px;
-    width: 100%;
   }
 
   .landing-teaser-img {
-    height: 350px;
-    width: 350px;
+    /* height: 350px;
+    width: 350px; */
+    margin-left: auto; margin-right: auto;
+    width: 100%;
   }
 
   .landing-about-logo {
