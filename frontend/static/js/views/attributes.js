@@ -126,7 +126,7 @@ export default class extends AbstractView {
               <br>
               <span style="color:#89C1F7;"><span style="color:#F37943;"><b>High</b>&nbsp;</span><b>Contrast</b><span style="float:right;">15.0 <span style="color:#F37943;">%</span></span></span>
               <br>
-              <span style="color:#F7E0CA;"><b>Pastel</b><span style="float:right;">15.0 %</span></span>
+              <span style="color:#de7a7a;"><b>Pastel</b><span style="float:right;">15.0 %</span></span>
               <br>
               <b><span style="color:#baff6e">mfers</span></b><span style="float:right; color:#ffb66f">30.0 %</span>
               <br>
