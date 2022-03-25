@@ -73,7 +73,7 @@ export default class extends AbstractView {
               <br>
               <span style="color:#c047fa;"><b><span style="color:#2cde8c">World</span> of <span style="color:#2cde8c">Green</span> Purple</b><span style="float:right;">5.0 %</span></span>
               <br>
-              <span style="color:#d13b66;"><span style="color:#671f97">World</span> of <span style="color:#671f97">Purple</span> Pink</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#d13b66;"><b><span style="color:#671f97">World</span> of <span style="color:#671f97">Purple</span> Pink</b><span style="float:right;">5.0 %</span></span>
               <br>
               <span style="color:#7f5ba7;"><b>Purple Bean</b><span style="float:right;">5.0 %</span></span>
               <br>
