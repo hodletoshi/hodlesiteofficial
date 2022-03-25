@@ -25,93 +25,93 @@ export default class extends AbstractView {
               The theme of your <b>HODLE Board</b> will be the theme that you play the <b>HODLE</b> game with.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
-              <span style="color:#F9A337;"><b>Bitcoin</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#505050;"><b>Dark</b><span style="float:right;">4.0 %</span></span>
               <br>
-              <span style="color:#DFF3FC;"><b>Clear Sky</b><span style="float:right;">5.0 %</span></span>
+              <b>Light</b><span style="float:right;">4.0 %</span>
               <br>
-              <span style="color:#72D56E;"><b>Correct</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#F7E0CA;"><b>Pastel Acorn</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <span style="color:#D5CEB5;"><b>Cream</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#91BBBB;"><b>Pastel Aqua</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <span style="color:#505050;"><b>Dark</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#CE5F6D;"><b>Pastel Cherry</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <span style="color:#93A2CC;"><b>Ethereum</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#DF89AD;"><b>Pastel Rose</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <span style="color:#FEC839;"><b>Hint</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#9D88BF;"><b>Pastel Galaxy</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <span style="color:#B9C6A2;"><b>Key Lime Meringue</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#E0E0E0;"><b>Pastel Silver</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <b>Light</b><span style="float:right;">5.0 %</span>
+              <span style="color:#F6D17D;"><b>Pastel Gold</b><span style="float:right;">3.0 %</span></span>
               <br>
-              <span style="color:#CAC9C7;"><b>Platinum</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#93A2CC;"><b>Ethereum</b><span style="float:right;">2.5 %</span></span>
               <br>
-              <span style="color:#E6D2D3;"><b>Quartz</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#F9A337;"><b>Bitcoin</b><span style="float:right;">2.5 %</span></span>
               <br>
-              <span style="color:#717171;"><b>Wrong</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#FEC839;"><b>Hint</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#F7E0CA;"><b>Pastel Acorn</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#B9C6A2;"><b>Key Lime Meringue</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#91BBBB;"><b>Pastel Aqua</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#CAC9C7;"><b>Platinum</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#CE5F6D;"><b>Pastel Cherry</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#E6D2D3;"><b>Quartz</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#DF89AD;"><b>Pastel Rose</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#717171;"><b>Wrong</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#9D88BF;"><b>Pastel Galaxy</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#DFF3FC;"><b>Clear Sky</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#E0E0E0;"><b>Pastel Silver</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#72D56E;"><b>Correct</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#F6D17D;"><b>Pastel Gold</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#D5CEB5;"><b>Cream</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#6266BB;"><b>Superlative Purple</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#6266BB;"><b>Superlative Purple</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#F6E996;"><b>Superlative Yellow</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#F6E996;"><b>Superlative Yellow</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#f384c4;"><b>Superlative Pink</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#f384c4;"><b>Superlative Pink</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#6CB9FD;"><b>Superlative Blue</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#6CB9FD;"><b>Superlative Blue</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#c047fa;"><b><span style="color:#2cde8c">World</span> of <span style="color:#2cde8c">Green</span> Purple</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#c047fa;"><b><span style="color:#2cde8c">World</span> of <span style="color:#2cde8c">Green</span> Purple</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#d13b66;"><b><span style="color:#671f97">World</span> of <span style="color:#671f97">Purple</span> Pink</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#d13b66;"><b><span style="color:#671f97">World</span> of <span style="color:#671f97">Purple</span> Pink</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#7f5ba7;"><b>Purple Bean</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#7f5ba7;"><b>Purple Bean</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#4d7aa6;"><b>Spirit Bean</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#4d7aa6;"><b>Spirit Bean</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#c61f3f;"><b>Red Bean</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#c61f3f;"><b>Red Bean</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#92cff2;"><b>Chill Cat</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#92cff2;"><b>Chill Cat</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#f82b6b;"><b>Classy Cat</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#f82b6b;"><b>Classy Cat</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#90abeb;"><b>Pastel X</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#90abeb;"><b>Pastel X</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#96ffe4;"><b>Minty Paradise</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#96ffe4;"><b>Minty Paradise</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#63d3ff;"><b>mf blue</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#63d3ff;"><b>mf blue</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#ffe561;"><b>mf yellow</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#ffe561;"><b>mf yellow</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#8f9156;"><b>Army Ape</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#8f9156;"><b>Army Ape</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#a3e5f4;"><b>Blue Ape</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#a3e5f4;"><b>Blue Ape</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#30e9b7;"><b>Turquoise Ape</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#30e9b7;"><b>Turquoise Ape</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#e4e6a8;"><b>Yellow Ape</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#e4e6a8;"><b>Yellow Ape</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#856d86;"><b>Purple Ape</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#856d86;"><b>Purple Ape</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#e2c9a1;"><b>Boat Ape</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#e2c9a1;"><b>Boat Ape</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#ab0b60;"><b>Shades Punk</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#ab0b60;"><b>Shades Punk</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#8665ac;"><b>Bidding Punk</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#8665ac;"><b>Bidding Punk</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#8c4f4c;"><b>Paper Hand Punk</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#8c4f4c;"><b>Paper Hand Punk</b><span style="float:right;">2.0 %</span></span>
               <br>
-              <span style="color:#638495;"><b>HODLR Punk</b><span style="float:right;">5.0 %</span></span>
+              <span style="color:#638495;"><b>HODLR Punk</b><span style="float:right;">2.0 %</span></span>
             </p>
           </div>
           <div class="content-div">
@@ -120,15 +120,15 @@ export default class extends AbstractView {
               The mode of your <b>HODLE Board</b> determines the color of your correct, hint, and incorrect tiles when playing <b>HODLE</b>.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
-              <span style="color:#717171;"><b>Dark</b><span style="float:right;">30.0 %</span></span>
+              <span style="color:#717171;"><b>Dark</b><span style="float:right;">25.0 %</span></span>
               <br>
-              <b>Light</b><span style="float:right;">30.0 %</span>
+              <b>Light</b><span style="float:right;">25.0 %</span>
               <br>
-              <span style="color:#89C1F7;"><span style="color:#F37943;"><b>High</b>&nbsp;</span><b>Contrast</b><span style="float:right;">15.0 <span style="color:#F37943;">%</span></span></span>
+              <span style="color:#89C1F7;"><span style="color:#F37943;"><b>High</b>&nbsp;</span><b>Contrast</b><span style="float:right;">17.5 <span style="color:#F37943;">%</span></span></span>
               <br>
-              <span style="color:#de7a7a;"><b>Pastel</b><span style="float:right;">15.0 %</span></span>
+              <span style="color:#de7a7a;"><b>Pastel</b><span style="float:right;">17.5 %</span></span>
               <br>
-              <b><span style="color:#baff6e">mfers</span></b><span style="float:right; color:#ffb66f">30.0 %</span>
+              <b><span style="color:#baff6e">mfers</span></b><span style="float:right; color:#ffb66f">10.0 %</span>
               <br>
               <b>
               <span style="color:#5AE6B4;">S</span><span style="color:#F4DB59;">u</span><span style="color:#A5A8F0;">p</span><span style="color:#FE95CF;">e</span><span style="color:#5AE6B4;">r</span><span style="color:#F4DB59;">l</span><span style="color:#A5A8F0;">a</span><span style="color:#FE95CF;">t</span><span style="color:#5AE6B4;">i</span><span style="color:#F4DB59;">v</span><span style="color:#A5A8F0;">e</span>
@@ -143,19 +143,19 @@ export default class extends AbstractView {
               The first guess in your <b>HODLE Board</b> can give you <span style="text-decoration:underline">special abilities</span> when playing the <b>HODLE</b> game.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
-              <b>HODLE</b><span style="float:right;">30.0 %</span>
+              <b>HODLE</b><span style="float:right;">28.0 %</span>
               <br>
-              <b>HODLR</b><span style="float:right;">30.0 %</span>
+              <b>HODLR</b><span style="float:right;">28.0 %</span>
               <br>
-              <b>IHODL</b><span style="float:right;">30.0 %</span>
+              <b>IHODL</b><span style="float:right;">28.0 %</span>
               <br>
-              <span style="color:#A6AAEE;"><b>EXTRA</b><span style="float:right;">30.0 %</span></span>
+              <span style="color:#FB95CC;"><b>THREE</b><span style="float:right;">5.0 %</span></span>
               <br>
-              <span style="color:#6ECF60;"><b>GREEN</b><span style="float:right;">30.0 %</span></span>
+              <span style="color:#6ECF60;"><b>GREEN</b><span style="float:right;">4.5 %</span></span>
               <br>
-              <span style="color:#F3D963;"><b>HINTS</b><span style="float:right;">30.0 %</span></span>
+              <span style="color:#F3D963;"><b>HINTS</b><span style="float:right;">4.5 %</span></span>
               <br>
-              <span style="color:#FB95CC;"><b>THREE</b><span style="float:right;">30.0 %</span></span>
+              <span style="color:#A6AAEE;"><b>EXTRA</b><span style="float:right;">2.0 %</span></span>
             </p>
           </div>
           <div class="content-div">
@@ -211,54 +211,54 @@ export default class extends AbstractView {
               The tiles attribute of your <b>HODLE Board</b> indicates how close your second guess was to the <b>HODLE</b>.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px; color: #6ECF60;">
-              <b>Genius</b><span style="float:right;">5.0 %</span>
+              <b>Genius</b><span style="float:right;">1.0 %</span>
               <br>
               <span style="color: #538D4E;">
-                <b>Magnificent</b><span style="float:right;">5.0 %</span>
+                <b>Magnificent</b><span style="float:right;">1.5 %</span>
                 <br>
-                <b>Clever</b><span style="float:right;">5.0 %</span>
+                <b>Clever</b><span style="float:right;">1.5 %</span>
                 <br>
-                <b>Brilliant</b><span style="float:right;">5.0 %</span>
+                <b>Brilliant</b><span style="float:right;">1.5 %</span>
               </span>
               <br>
               <span style="color: #819155;">
-                <b>Superb</b><span style="float:right;">5.0 %</span>
+                <b>Superb</b><span style="float:right;">2.0 %</span>
                 <br>
-                <b>Stunning</b><span style="float:right;">5.0 %</span>
+                <b>Stunning</b><span style="float:right;">2.0 %</span>
                 <br>
-                <b>Stellar</b><span style="float:right;">5.0 %</span>
+                <b>Stellar</b><span style="float:right;">2.0 %</span>
                 <br>
-                <b>Splendid</b><span style="float:right;">5.0 %</span>
+                <b>Splendid</b><span style="float:right;">2.0 %</span>
                 <br>
-                <b>Spectacular</b><span style="float:right;">5.0 %</span>
+                <b>Spectacular</b><span style="float:right;">2.0 %</span>
               </span>
               <br>
               <span style="#B5C659;">
-                <b>Skillful</b><span style="float:right;">5.0 %</span>
+                <b>Skillful</b><span style="float:right;">3.0 %</span>
                 <br>
-                <b>Incredible</b><span style="float:right;">5.0 %</span>
+                <b>Incredible</b><span style="float:right;">3.0 %</span>
                 <br>
-                <b>Impressive</b><span style="float:right;">5.0 %</span>
+                <b>Impressive</b><span style="float:right;">3.0 %</span>
                 <br>
-                <b>Excellent</b><span style="float:right;">5.0 %</span>
+                <b>Excellent</b><span style="float:right;">3.0 %</span>
                 <br>
-                <b>Awesome</b><span style="float:right;">5.0 %</span>
+                <b>Awesome</b><span style="float:right;">3.0 %</span>
                 <br>
-                <b>Amazing</b><span style="float:right;">5.0 %</span>
+                <b>Amazing</b><span style="float:right;">3.0 %</span>
               </span>
               <br>
               <span style="color:#E6D15A;">
-                <b>Respectable</b><span style="float:right;">5.0 %</span>
+                <b>Respectable</b><span style="float:right;">4.0 %</span>
                 <br>
-                <b>Pleasant</b><span style="float:right;">5.0 %</span>
+                <b>Pleasant</b><span style="float:right;">4.0 %</span>
                 <br>
-                <b>Nice</b><span style="float:right;">5.0 %</span>
+                <b>Nice</b><span style="float:right;">4.0 %</span>
                 <br>
-                <b>Neat</b><span style="float:right;">5.0 %</span>
+                <b>Neat</b><span style="float:right;">4.0 %</span>
                 <br>
-                <b>Good</b><span style="float:right;">5.0 %</span>
+                <b>Good</b><span style="float:right;">4.0 %</span>
                 <br>
-                <b>Decent</b><span style="float:right;">5.0 %</span>
+                <b>Decent</b><span style="float:right;">4.0 %</span>
               </span>
               <br>
               <span style="color:#B1B1B1;">
@@ -278,7 +278,7 @@ export default class extends AbstractView {
                 <br>
                 <b>Almost</b><span style="float:right;">5.0 %</span>
                 <br>
-                <b>Puzzling</b><span style="float:right;">5.0 %</span>
+                <b>Puzzling</b><span style="float:right;">2.5 %</span>
               </span>
             </p>
           </div>
