@@ -67,7 +67,51 @@ export default class extends AbstractView {
               <br>
               <span style="color:#F6E996;"><b>Superlative Yellow</b><span style="float:right;">5.0 %</span></span>
               <br>
+              <span style="color:#f384c4;"><b>Superlative Pink</b><span style="float:right;">5.0 %</span></span>
+              <br>
               <span style="color:#6CB9FD;"><b>Superlative Blue</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#c047fa;"><b><span style="color:#2cde8c">World</span> of <span style="color:#2cde8c">Green</span> Purple</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#d13b66;"><span style="color:#671f97">World</span> of <span style="color:#671f97">Purple</span> Pink</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#7f5ba7;"><b>Purple Bean</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#4d7aa6;"><b>Spirit Bean</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#c61f3f;"><b>Red Bean</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#92cff2;"><b>Chill Cat</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#f82b6b;"><b>Classy Cat</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#90abeb;"><b>Pastel X</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#96ffe4;"><b>Minty Paradise</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#63d3ff;"><b>mf blue</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#ffe561;"><b>mf yellow</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#8f9156;"><b>Army Ape</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#a3e5f4;"><b>Blue Ape</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#30e9b7;"><b>Turquoise Ape</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#e4e6a8;"><b>Yellow Ape</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#856d86;"><b>Purple Ape</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#e2c9a1;"><b>Boat Ape</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#ab0b60;"><b>Shades Punk</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#8665ac;"><b>Bidding Punk</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#8c4f4c;"><b>Paper Hand Punk</b><span style="float:right;">5.0 %</span></span>
+              <br>
+              <span style="color:#638495;"><b>HODLR Punk</b><span style="float:right;">5.0 %</span></span>
             </p>
           </div>
           <div class="content-div">
@@ -83,6 +127,8 @@ export default class extends AbstractView {
               <span style="color:#89C1F7;"><span style="color:#F37943;"><b>High</b>&nbsp;</span><b>Contrast</b><span style="float:right;">15.0 <span style="color:#F37943;">%</span></span></span>
               <br>
               <span style="color:#F7E0CA;"><b>Pastel</b><span style="float:right;">15.0 %</span></span>
+              <br>
+              <b><span style="color:#baff6e">mfers</span></b><span style="float:right; color:#ffb66f">30.0 %</span>
               <br>
               <b>
               <span style="color:#5AE6B4;">S</span><span style="color:#F4DB59;">u</span><span style="color:#A5A8F0;">p</span><span style="color:#FE95CF;">e</span><span style="color:#5AE6B4;">r</span><span style="color:#F4DB59;">l</span><span style="color:#A5A8F0;">a</span><span style="color:#FE95CF;">t</span><span style="color:#5AE6B4;">i</span><span style="color:#F4DB59;">v</span><span style="color:#A5A8F0;">e</span>
