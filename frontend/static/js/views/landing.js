@@ -52,7 +52,7 @@ export default class extends AbstractView {
               <br>
               IN OUR DISCORD!
             </h1>
-            <button class="discord-button" onclick="window.open('https://discord.gg/hodlenft')">➜</button>
+            <button class="discord-button" onclick="window.open('https://discord.com/invite/PZbZ4yeTrt')">➜</button>
           </div>
           <div class="landing-teaser" id="teaser" style="height: 100vh;">
             <img class="landing-teaser-img" id="teaser-img" src="static/img/teaser1.png"></img>
