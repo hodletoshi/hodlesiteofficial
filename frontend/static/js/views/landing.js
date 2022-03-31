@@ -36,6 +36,10 @@ export default class extends AbstractView {
         }, 1000);
       }
 
+      if (document.contains(document.getElementById("settings-button"))) {
+        document.getElementById("settings-button").remove();
+      }
+
       return `
           <div class="what-is-hodle-bottom">
             <img class="what-is-hodle-tile" id="what-is-hodle-tile" src="static/img/h-tile.png" width="120px" height="120px">

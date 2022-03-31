@@ -18,23 +18,30 @@
 
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
   font-family: 'Clear Sans';
+  max-height: 90%;
 }
 
 #container {
   display: flex;
-  height: 100%;
+  /* height: 100%; */
+  max-height: 90%;
   align-items: center;
   flex-direction: column;
+
+  overflow: visible;
 }
 
 #game {
   width: 100%;
   max-width: 500px;
-  height: 100%;
+  /* height: 100%; */
+  max-height: 90%;
   display: flex;
   flex-direction: column;
+
+  overflow: visible;
 }
 
 header {
@@ -55,9 +62,9 @@ header {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  overflow: hidden;
+  overflow: visible;
 
-  margin-top: 50px;
+  margin-top: 15vh;
   margin-bottom: 50px;
 }
 
@@ -70,12 +77,14 @@ header {
 }
 
 .square {
-  border: 2px solid rgb(58, 58, 60);
+  /* border: 2px solid rgb(58, 58, 60); */
+  background-color: #262626;
+
   min-width: 60px;
   min-height: 60px;
   font-size: 30px;
   font-weight: bold;
-  color: gainsboro;
+  color: white;
   text-transform: uppercase;
 
   display: flex;
@@ -90,6 +99,15 @@ header {
 #keyboard-container {
   height: 200px;
   bottom: 0;
+
+  position: fixed;
+  width: 500px;
+}
+
+@media screen and (max-width: 500px) {
+  #keyboard-container {
+    width: 100vw;
+  }
 }
 
 .keyboard-row {
@@ -100,20 +118,21 @@ header {
   touch-action: manipulation;
 }
 
-.keyboard-row button {
+.keyboard-key {
   font-family: inherit;
   font-weight: bold;
   border: 0;
   padding: 0;
   height: 58px;
   cursor: pointer;
-  background-color: rgb(129, 131, 132);
-  color: rgb(215, 218, 220);
   flex-grow: 1;
   text-transform: uppercase;
   margin-right: 6px;
   border-radius: 4px;
   user-select: none;
+
+  color: white;
+  background-color: #818384;
 }
 
 .keyboard-row button.wide-button {
@@ -124,15 +143,21 @@ header {
   flex-grow: 0.5;
 }
 
-@keyframes flipping {
+@keyframes spirit-glow {
   0% {
-      transform: rotateX(0deg);
+    -webkit-box-shadow: 0 0 10px 2px #588eb5, inset 0 0 3px #588eb5;
+    -moz-box-shadow: 0 0 10px 2px #588eb5, inset 0 0 3px #588eb5;
+    box-shadow: 0 0 10px 2px #588eb5, inset 0 0 3px #588eb5;
   }
   50% {
-      transform: rotateX(90deg);
+    -webkit-box-shadow: 0 0 10px 5px #588eb5, inset 0 0 10px #588eb5;
+    -moz-box-shadow: 0 0 10px 5px #588eb5, inset 0 0 10px #588eb5;
+    box-shadow: 0 0 10px 5px #588eb5, inset 0 0 10px #588eb5;
   }
   100% {
-      transform: rotateX(0deg);
+    -webkit-box-shadow: 0 0 10px 2px #588eb5, inset 0 0 3px #588eb5;
+    -moz-box-shadow: 0 0 10px 2px #588eb5, inset 0 0 3px #588eb5;
+    box-shadow: 0 0 10px 2px #588eb5, inset 0 0 3px #588eb5;
   }
 }
 
@@ -169,4 +194,133 @@ header {
   .keyboard-row button {
     height: 50px;
   }
+}
+
+.bounce {
+  -webkit-animation: bounce 1s 1;
+  animation: bounce 1s 1;
+}
+
+/* Scroll down indicator (bouncing) */
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px); } }
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0); }
+  40% {
+    -moz-transform: translateY(-30px); }
+  60% {
+    -moz-transform: translateY(-15px); } }
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+    transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    transform: translateY(-15px); }
+  }
+
+#settingsheadernav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  background: #121213;
+  padding-top: 15px;
+  padding-bottom: 0px;
+
+  height: 50px;
+  width: 100%;
+
+  text-align: center;
+
+  border-bottom: 1px solid #3a3a3c;
+}
+
+.settings-left-nav {
+  height: 20px;
+  width: 20px;
+  margin-left: 12px;
+  float: left;
+
+  margin-top: -19px;
+
+  cursor: pointer;
+}
+
+.settings-right-nav {
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  float: right;
+
+  margin-top: -19px;
+
+  cursor: pointer;
+}
+
+/* The Overlay (background) */
+.settings-overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100vh;
+  width: 100vw;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: -110vw;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 1); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+
+  z-index: 9999;
+}
+
+/* Position the content inside the overlay */
+.settings-overlay-content {
+  position: relative;
+  top: 0; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: left; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  margin-left: 30px;
+
+  margin-bottom: 100px;
+}
+
+/* The navigation links inside the overlay */
+.settings-overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.settings-overlay a:hover, .settings-overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .settings-overlay a {font-size: 20px}
 }

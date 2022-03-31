@@ -10,6 +10,10 @@ export default class extends AbstractView {
       document.querySelector('#hodle-footer').style.opacity = "100%";
       document.querySelector('#hodle-footer').style.height = "60px";
 
+      if (document.contains(document.getElementById("settings-button"))) {
+        document.getElementById("settings-button").remove();
+      }
+
       return `
           <h1 class="top-title">
             Game <b>Rewards</b>
