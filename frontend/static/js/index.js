@@ -29,7 +29,7 @@ const router = async () => {
     const routes = [
         { path: "/", view: Landing },
         { path: "/home", view: Landing },
-        { path: "/demo", view: Demo },
+        //{ path: "/demo", view: Demo },
         { path: "/play", view: Play },
         { path: "/about", view: About },
         { path: "/mint", view: Mint },
