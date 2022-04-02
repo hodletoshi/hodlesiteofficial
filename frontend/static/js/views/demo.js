@@ -12,16 +12,16 @@ var theme = "Light";
 var mode = "Light";
 
 const theme_config = {
-  // Theme Name: [Background Color, Tile Base Color, Unused Square Text Color, Keyboard tile base color, Keyboard text color, Background Image (optional)]
+  // Theme Name: [Background Color, Tile Base Color, Unused Square Text Color, Keyboard tile base color, Keyboard text color, Background Image (optional), Background Garnish (optional)]
   'Light': ["#ffffff", "#d5dce0", "white", "#d5dce0", "black"],
   'Dark': ["#161616", "#262626", "white", "#818384", "white"],
-  'Pastel Acorn': ["#fae4cc", "#ddb98d", "white", "#818384", "white"],
-  'Pastel Aqua': ["#c8e7f1", "#91bcbb", "white", "#818384", "white"],
-  'Pastel Cherry': ["#fdb6b6", "#ce596c", "white", "#818384", "white"],
-  'Pastel Rose': ["#f8d5e8", "#df83ad", "white", "#818384", "white"],
-  'Pastel Galaxy': ["#bea6e0", "#9d83c1", "white", "#818384", "white"],
-  'Pastel Silver': ["#e0e0e0", "#cbcbcb", "white", "#818384", "white"],
-  'Pastel Gold': ["#fde67b", "#ceaa44", "white", "#818384", "white"],
+  'Pastel Acorn': ["#fae4cc", "#ddb98d", "white", "#818384", "white", "pastel_acorn_bg.png"],
+  'Pastel Aqua': ["#c8e7f1", "#91bcbb", "white", "#818384", "white", "pastel_aqua_bg.png"],
+  'Pastel Cherry': ["#fdb6b6", "#ce596c", "white", "#818384", "white", "pastel_cherry_bg.png"],
+  'Pastel Rose': ["#f8d5e8", "#df83ad", "white", "#818384", "white", "pastel_rose_bg.png"],
+  'Pastel Galaxy': ["#bea6e0", "#9d83c1", "white", "#818384", "white", "pastel_galaxy_bg.png"],
+  'Pastel Silver': ["#e0e0e0", "#cbcbcb", "white", "#818384", "white", "pastel_silver_bg.png"],
+  'Pastel Gold': ["#fde67b", "#ceaa44", "white", "#818384", "white", "pastel_gold_bg.png"],
   'Ethereum': ["#8991b3", "#95a1d1", "white", "#d5dce0", "black"],
   'Bitcoin': ["#f79300", "#fca628", "white", "#818384", "white"],
   'Hint': ["#ffcb23", "#ffdd6e", "white", "#818384", "white"],
@@ -53,7 +53,7 @@ const theme_config = {
   'Yellow Ape': ["#e4e6a8", "#c9ca9d", "white", "#818384", "white"],
   'Purple Ape': ["#6f5c70", "#7f767f", "white", "#d5dce0", "black"],
   'Boat Ape': ["#7a633f", "#e2c9a1", "white", "#d5dce0", "black"],
-  'Shades Punk': ["#8b005c", "#ca7cb0", "white", "#d5dce0", "black"],
+  'Shades Punk': ["#8b005c", "#ca7cb0", "white", "#d5dce0", "black", "shades_punk_bg.png"],
   'Bidding Punk': ["#8665ac", "#8000b7", "white", "#d5dce0", "black"],
   'Paper Hand Punk': ["#8c4f4c", "#a68685", "white", "#d5dce0", "black"],
   'HODLR Punk': ["#638497", "#cafdfc", "#638497", "#d5dce0", "black"]
@@ -131,7 +131,21 @@ function updateTheme() {
     keyList[i].style.color = theme_config[theme][4];
   }
 
-  document.querySelector('body').style.backgroundColor = theme_config[theme][0];
+  if(typeof theme_config[theme][5] === 'undefined') {
+    document.documentElement.style.backgroundImage = 'none';
+    document.body.style.backgroundColor = theme_config[theme][0];
+
+  } else {
+    document.documentElement.style.backgroundImage = `url(static/img/${theme_config[theme][5]})`;
+    document.body.style.backgroundColor = "#ffffff00";
+
+    if (typeof theme_config[theme][6] === 'undefined') {
+      document.getElementById('container').style.backgroundImage = 'none';
+
+    } else {
+      document.getElementById('container').style.backgroundImage = `url(../../static/img/${theme_config[theme][6]})`;
+    }
+  }
 }
 
 
@@ -217,15 +231,15 @@ function getShareCopy() {
       break;
     }
 
-    if (rawSquare.style.backgroundColor == "rgb(58, 58, 60)") {
+    if (rawSquare.classList.contains('incorrect')) {
       // Black
       returnStr += "⬛";
 
-    } else if (rawSquare.style.backgroundColor == "rgb(181, 159, 59)") {
+    } else if (rawSquare.classList.contains('hint')) {
       // Yellow
       returnStr += "🟨";
 
-    } else {
+    } else if (rawSquare.classList.contains('correct')){
       // Green
       returnStr += "🟩";
     }

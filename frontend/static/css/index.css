@@ -160,16 +160,16 @@ body {
 .header-logo {
   position: absolute;
 
-  background-image: url('../img/hodle_logo.png');
-  background-size: 200px 35px;
+  background-image: url('../img/hodle_logo_6.png');
+  background-size: 270px 50px;
   background-repeat: no-repeat;
 
-  width: 200px;
-  height: 35px;
+  width: 270px;
+  height: 50px;
 
-  margin-left: -100px;
+  margin-left: -136px;
 
-  top: 15px;
+  top: 8px;
 }
 
 .sidenav {
@@ -273,7 +273,7 @@ body {
 .sidenav .sidenav-logo {
   position: absolute;
 
-  background-image: url('../img/hodle_logo.png');
+  background-image: url('../img/hodle_logo_2.png');
   background-size: 135px 25px;
   background-repeat: no-repeat;
 

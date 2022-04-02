@@ -11,6 +11,12 @@
     font-display: swap;
 }
 
+html {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +37,12 @@ body {
   flex-direction: column;
 
   overflow: visible;
+
+  margin-top: 0;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #game {
@@ -108,14 +120,23 @@ header {
   #keyboard-container {
     width: 100vw;
   }
+
+  .keyboard-row {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 9px;
+  }
 }
 
 .keyboard-row {
   display: flex;
   justify-content: center;
-  width: 100%;
   margin: 0 auto 8px;
   touch-action: manipulation;
+
+  width: auto;
+  padding-left: 15px;
+  padding-right: 9px;
 }
 
 .keyboard-key {
@@ -185,6 +206,11 @@ header {
     margin-bottom: 10px;
   }
 
+  #container {
+    padding-top: calc(50vh - 300px);
+    padding-bottom: calc(50vh - 400px);
+  }
+
   .square {
     font-size: 20px;
     min-width: 50px;
@@ -193,6 +219,8 @@ header {
 
   .keyboard-row button {
     height: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 

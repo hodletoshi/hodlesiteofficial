@@ -29,9 +29,9 @@ export default class extends AbstractView {
           <div class="content-div">
             <h1>What will it cost to mint a HODLE Board?</h1>
             <h2 class="blurred">
-              <span class="unselectable">0.11</span> ETH + Gas for WordListed players.
+              <span class="unselectable">0.??</span> ETH + Gas for WordListed players.
               <br>
-              <span class="unselectable">0.15</span> ETH + Gas for the general public.
+              <span class="unselectable">0.??</span> ETH + Gas for the general public.
             </h2>
           </div>
           <div class="content-div">
