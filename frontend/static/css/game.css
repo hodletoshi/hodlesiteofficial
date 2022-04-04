@@ -90,7 +90,7 @@ header {
 
 .square {
   /* border: 2px solid rgb(58, 58, 60); */
-  background-color: #262626;
+  background-color: rgb(38, 38, 38);
 
   min-width: 60px;
   min-height: 60px;
@@ -327,10 +327,103 @@ header {
   top: 0; /* 25% from the top */
   width: 100%; /* 100% width */
   text-align: left; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-  margin-left: 30px;
+  margin-top: 50px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  /* margin-left: 30px; */
 
   margin-bottom: 100px;
+
+  text-align: center;
+}
+
+.settings-div {
+  width: 300px;
+  text-align: left;
+
+  float: left;
+  clear: none;
+}
+
+.theme-div {
+  width: 350px;
+  text-align: left;
+  margin: auto;
+}
+
+.theme-div-header {
+  width: 350px; margin: auto; text-align:left; font-size: 25px;
+}
+
+.theme-display-text {
+  float:right; font-size: 20px; margin-top: 3px; text-decoration: underline; color: #C9C9C9; font-weight:normal;
+}
+
+.theme-div button {
+  width: 45px;
+  height: 45px;
+
+  border: 2px solid white;
+  border-radius: 5px;
+
+  margin-right: 11px;
+  margin-top: 20px;
+
+  cursor: pointer;
+}
+
+.theme-div button:nth-child(6n) {
+  margin-right: 0px;
+}
+
+.theme-div button:last-child {
+  margin-right: 0px;
+}
+
+.theme-div .selected {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 20px;
+  border: none;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: limegreen;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #FFF;
+  font-weight: 700;
+
+  top: -21px;
+  right: -32px;
+
+  opacity: 0;
+
+  border: 2px solid limegreen;
+  filter: drop-shadow(0px 0px 5px black);
+}
+
+.theme-div .selected.show {
+  opacity: 1;
+}
+
+.theme-div button.chosen {
+  border: 2px solid limegreen;
+}
+
+.theme-div button.chosen .selected {
+  opacity: 1;
+}
+
+label {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 1em 0px 8px;
+}
+
+input[type=radio] {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
 }
 
 /* The navigation links inside the overlay */

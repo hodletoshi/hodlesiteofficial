@@ -3,13 +3,13 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "hodle";
+let word = "trope";
 let guessedWordCount = 0;
 
 var keys = null;
 
-var theme = "Light";
-var mode = "Light";
+var theme = "Dark";
+var mode = "Dark";
 
 const theme_config = {
   // Theme Name: [Background Color, Tile Base Color, Unused Square Text Color, Keyboard tile base color, Keyboard text color, Background Image (optional), Background Garnish (optional)]
@@ -32,13 +32,13 @@ const theme_config = {
   'Clear Sky': ["#dff3fc", "#f8fdff", "#adcddb", "#818384", "white"],
   'Correct': ["#6dcf63", "#77e26c", "white", "#d5dce0", "black"],
   'Cream': ["#eeead1", "#ddd6ba", "white", "#818384", "white"],
-  'Superlative Purple': ["#7c7ffc", "#d6dcff", "#847bfa", "#d5dce0", "black"],
-  'Superlative Yellow': ["#fbec83", "#a4a3e9", "white", "#818384", "white"],
-  'Superlative Pink': ["#ffd7ee", "#ee7fbf", "white", "#818384", "white"],
-  'Superlative Blue': ["#54d4ec", "#fffad3", "#59daf6", "#d5dce0", "black"],
-  'World of Green Purple': ["#3dcc99", "#bea1ff", "white", "#d5dce0", "Black"],
-  'World of Purple Pink': ["#8c2986", "#8c2986", "white", "#d5dce0", "black"],
-  'Purple Bean': ["#46416f", "#f5f6f3", "#46416f", "white", "black"],
+  'Superlative Purple': ["#7c7ffc", "#d6dcff", "#847bfa", "#d5dce0", "black", "super_purple_bg.png"],
+  'Superlative Yellow': ["#fbec83", "#a4a3e9", "white", "#818384", "white", "super_yellow_bg.png"],
+  'Superlative Pink': ["#ffd7ee", "#ee7fbf", "white", "#818384", "white", "super_pink_bg.png"],
+  'Superlative Blue': ["#54d4ec", "#fffad3", "#59daf6", "#d5dce0", "black", "super_blue_bg.png"],
+  'World of Green Purple': ["#3dcc99", "#bea1ff", "white", "#d5dce0", "black", "wo_green_purple_bg.png"],
+  'World of Purple Pink': ["#8c2986", "#f84077", "white", "#d5dce0", "black", "wo_purple_pink.png"],
+  'Purple Bean': ["#46416f", "#f5f6f3", "#46416f", "white", "black", "purple_bean_bg.png"],
   'Spirit Bean': ["#304476", "#f5f6f3", "white", "white", "black"],
   'Red Bean': ["#c61f3f", "#f5f6f3", "#c61f3f", "white", "#black"],
   'Chill Cat': ["#485add", "#92cff2", "white", "#92cff2", "white"],
@@ -252,6 +252,61 @@ function getShareCopy() {
   return returnStr;
 }
 
+function getWordResult(wordArr) {
+  var hints = {};
+  var returnStr = ["X", "X", "X", "X", "X"];
+
+  const currentWordArr = getCurrentWordArr();
+
+  // Scan for green
+  currentWordArr.forEach((letter, index) => {
+
+    if (word.charAt(index) == letter) {
+      returnStr[index] = "C";
+
+      if (letter in hints) {
+        hints[letter] = hints[letter] + 1;
+      } else {
+        hints[letter] = 1;
+      }
+    }
+  });
+
+  // Scan for Yellow
+  currentWordArr.forEach((letter, index) => {
+    if (word.includes(letter)) {
+      const numOccurencesInWord = word.split(letter).length - 1;
+      const numOccurencesInHints = letter in hints ? hints[letter] : 0;
+
+      if (numOccurencesInWord != numOccurencesInHints) {
+        returnStr[index] = "H";
+
+        if (letter in hints) {
+          hints[letter] = hints[letter] + 1;
+        } else {
+          hints[letter] = 1;
+        }
+      }
+    }
+  });
+
+  return returnStr;
+}
+
+function getTileColorUp(result, index) {
+  const charResult = result[index];
+
+  if (charResult == "X") {
+    return mode_config[mode][0];
+
+  } else if (charResult == "H") {
+    return mode_config[mode][1];
+
+  } else {
+    return mode_config[mode][2];
+  }
+}
+
 function handleSubmitWord() {
   const currentWordArr = getCurrentWordArr();
   if (currentWordArr.length !== 5) {
@@ -267,8 +322,11 @@ function handleSubmitWord() {
 
   const firstLetterId = guessedWordCount * 5 + 1;
   const interval = 300;
+
+  const wordResult = getWordResult(currentWordArr);
+
   currentWordArr.forEach((letter, index) => {
-    const tileColor = getTileColor(letter, index);
+    const tileColor = getTileColorUp(wordResult, index);
 
     const letterId = firstLetterId + index;
     const letterEl = document.getElementById(letterId);
@@ -490,6 +548,31 @@ function addSettingsButton() {
   document.getElementById("settings-button").addEventListener ("click", openNav, false);
 }
 
+function handleThemeClick(event) {
+  const clickedbtn = event.target;
+
+  document.getElementById("themes-div").getElementsByClassName("chosen")[0].classList.toggle("chosen");
+  clickedbtn.classList.toggle("chosen");
+
+  theme = clickedbtn.value;
+
+  document.getElementById("theme-display").innerHTML = theme;
+  updateTheme();
+  updateMode();
+}
+
+function handleModeClick(event) {
+  const clickedbtn = event.target;
+
+  document.getElementById("modes-div").getElementsByClassName("chosen")[0].classList.toggle("chosen");
+  clickedbtn.classList.toggle("chosen");
+
+  mode = clickedbtn.value;
+
+  document.getElementById("mode-display").innerHTML = mode;
+  updateMode();
+}
+
 
 export default class extends AbstractView {
     constructor(params) {
@@ -510,6 +593,17 @@ export default class extends AbstractView {
       setTimeout(function() {
         document.querySelector('#fsoverlay').remove();
 
+        var themeButtons = document.getElementById("themes-div").children;
+        for (var i = 0; i < themeButtons.length; i++) {
+          themeButtons[i].addEventListener("click", handleThemeClick);
+        }
+
+        var modeButtons = document.getElementById("modes-div").children;
+        for (var i = 0; i < modeButtons.length; i++) {
+          modeButtons[i].addEventListener("click", handleModeClick);
+        }
+
+        /*
         var themes = document.theme_form.theme_group;
         var prev_theme = null;
         for (var i = 0; i < themes.length; i++) {
@@ -534,7 +628,8 @@ export default class extends AbstractView {
                 }
             });
         }
-      }, 2000);
+        */
+      }, 1000);
 
       return `
       <link rel="stylesheet" href="/static/css/game.css">
@@ -554,113 +649,68 @@ export default class extends AbstractView {
 
         <!-- Overlay content -->
         <div class="settings-overlay-content">
-          <h1>Theme</h1>
-            <form name="theme_form">
-              <input type="radio" id="theme-dark" name="theme_group" value="Dark" checked="checked">
-              <label for="theme-dark">Dark</label><br>
-              <input type="radio" id="theme-light" name="theme_group" value="Light">
-              <label for="theme-light">Light</label><br>
-              <input type="radio" id="theme-pastel-acorn" name="theme_group" value="Pastel Acorn">
-              <label for="theme-pastel-acorn">Pastel Acorn</label><br>
-              <input type="radio" id="theme-pastel-aqua" name="theme_group" value="Pastel Aqua">
-              <label for="theme-pastel-aqua">Pastel Aqua</label><br>
-              <input type="radio" id="theme-pastel-cherry" name="theme_group" value="Pastel Cherry">
-              <label for="theme-pastel-cherry">Pastel Cherry</label><br>
-              <input type="radio" id="theme-pastel-rose" name="theme_group" value="Pastel Rose">
-              <label for="theme-pastel-rose">Pastel Rose</label><br>
-              <input type="radio" id="theme-pastel-galaxy" name="theme_group" value="Pastel Galaxy">
-              <label for="theme-pastel-galaxy">Pastel Galaxy</label><br>
-              <input type="radio" id="theme-pastel-silver" name="theme_group" value="Pastel Silver">
-              <label for="theme-pastel-silver">Pastel Silver</label><br>
-              <input type="radio" id="theme-pastel-gold" name="theme_group" value="Pastel Gold">
-              <label for="theme-pastel-gold">Pastel Gold</label><br>
-              <input type="radio" id="theme-ethereum" name="theme_group" value="Ethereum">
-              <label for="theme-ethereum">Ethereum</label><br>
-              <input type="radio" id="theme-bitcoin" name="theme_group" value="Bitcoin">
-              <label for="theme-bitcoin">Bitcoin</label><br>
-              <input type="radio" id="theme-hint" name="theme_group" value="Hint">
-              <label for="theme-hint">Hint</label><br>
-              <input type="radio" id="theme-keylime" name="theme_group" value="Key Lime Meringue">
-              <label for="theme-keylime">Key Lime Meringue</label><br>
-              <input type="radio" id="theme-platinum" name="theme_group" value="Platinum">
-              <label for="theme-platinum">Platinum</label><br>
-              <input type="radio" id="theme-quartz" name="theme_group" value="Quartz">
-              <label for="theme-quartz">Quartz</label><br>
-              <input type="radio" id="theme-wrong" name="theme_group" value="Wrong">
-              <label for="theme-wrong">Wrong</label><br>
-              <input type="radio" id="theme-clearsky" name="theme_group" value="Clear Sky">
-              <label for="theme-clearsky">Clear Sky</label><br>
-              <input type="radio" id="theme-correct" name="theme_group" value="Correct">
-              <label for="theme-correct">Correct</label><br>
-              <input type="radio" id="theme-cream" name="theme_group" value="Cream">
-              <label for="theme-cream">Cream</label><br>
-              <input type="radio" id="theme-sl-purple" name="theme_group" value="Superlative Purple">
-              <label for="theme-sl-purple">Superlative Purple</label><br>
-              <input type="radio" id="theme-sl-yellow" name="theme_group" value="Superlative Yellow">
-              <label for="theme-sl-yellow">Superlative Yellow</label><br>
-              <input type="radio" id="theme-sl-pink" name="theme_group" value="Superlative Pink">
-              <label for="theme-sl-pink">Superlative Pink</label><br>
-              <input type="radio" id="theme-sl-blue" name="theme_group" value="Superlative Blue">
-              <label for="theme-sl-blue">Superlative Blue</label><br>
-              <input type="radio" id="theme-wo-gp" name="theme_group" value="World of Green Purple">
-              <label for="theme-wo-gp">World of Green Purple</label><br>
-              <input type="radio" id="theme-wo-pp" name="theme_group" value="World of Purple Pink">
-              <label for="theme-wo-pp">World of Purple Pink</label><br>
-              <input type="radio" id="theme-purple-bean" name="theme_group" value="Purple Bean">
-              <label for="theme-purple-bean">Purple Bean</label><br>
-              <input type="radio" id="theme-spirit-bean" name="theme_group" value="Spirit Bean">
-              <label for="theme-spirit-bean">Spirit Bean</label><br>
-              <input type="radio" id="theme-red-bean" name="theme_group" value="Red Bean">
-              <label for="theme-red-bean">Red Bean</label><br>
-              <input type="radio" id="theme-chill-cat" name="theme_group" value="Chill Cat">
-              <label for="theme-chill-cat">Chill Cat</label><br>
-              <input type="radio" id="theme-classy-cat" name="theme_group" value="Classy Cat">
-              <label for="theme-classy-cat">Classy Cat</label><br>
-              <input type="radio" id="theme-pastelx" name="theme_group" value="Pastel X">
-              <label for="theme-pastelx">Pastel X</label><br>
-              <input type="radio" id="theme-mintyparadise" name="theme_group" value="Minty Paradise">
-              <label for="theme-mintyparadise">Minty Paradise</label><br>
-              <input type="radio" id="theme-mfblue" name="theme_group" value="mf blue">
-              <label for="theme-mfblue">mf blue</label><br>
-              <input type="radio" id="theme-mfyellow" name="theme_group" value="mf yellow">
-              <label for="theme-mfyellow">mf yellow</label><br>
-              <input type="radio" id="theme-army-ape" name="theme_group" value="Army Ape">
-              <label for="theme-army-ape">Army Ape</label><br>
-              <input type="radio" id="theme-blue-ape" name="theme_group" value="Blue Ape">
-              <label for="theme-blue-ape">Blue Ape</label><br>
-              <input type="radio" id="theme-tur-ape" name="theme_group" value="Turquoise Ape">
-              <label for="theme-tur-ape">Turquoise Ape</label><br>
-              <input type="radio" id="theme-yellow-ape" name="theme_group" value="Yellow Ape">
-              <label for="theme-yellow-ape">Yellow Ape</label><br>
-              <input type="radio" id="theme-purp-ape" name="theme_group" value="Purple Ape">
-              <label for="theme-purp-ape">Purple Ape</label><br>
-              <input type="radio" id="theme-boat-ape" name="theme_group" value="Boat Ape">
-              <label for="theme-boat-ape">Boat Ape</label><br>
-              <input type="radio" id="theme-sha-punk" name="theme_group" value="Shades Punk">
-              <label for="theme-sha-punk">Shades Punk</label><br>
-              <input type="radio" id="theme-bid-punk" name="theme_group" value="Bidding Punk">
-              <label for="theme-bid-punk">Bidding Punk</label><br>
-              <input type="radio" id="theme-ph-punk" name="theme_group" value="Paper Hand Punk">
-              <label for="theme-ph-punk">Paper Hand Punk</label><br>
-              <input type="radio" id="theme-hodl-punk" name="theme_group" value="HODLR Punk">
-              <label for="theme-hodl-punk">HODLR Punk</label><br>
-            </form>
+          <h1 class="theme-div-header">
+            Theme <span class="theme-display-text" id="theme-display">Dark</span>
+          </h1>
+          <div class="theme-div" id="themes-div">
+            <button style="background-color: #FFFFFF" value="Light"><div class="selected" id="theme-dark"></div></button>
+            <button class="chosen" style="background-color: #161616" value="Dark"><div class="selected"></div></button>
+            <button style="background-color: #FAE4CC" value="Pastel Acorn"><div class="selected"></div></button>
+            <button style="background-color: #C8E7F1" value="Pastel Aqua"><div class="selected"></div></button>
+            <button style="background-color: #FDB6B6" value="Pastel Cherry"><div class="selected"></div></button>
+            <button style="background-color: #F8D5E8" value="Pastel Rose"><div class="selected"></div></button>
+            <button style="background-color: #BEA6E0" value="Pastel Galaxy"><div class="selected"></div></button>
+            <button style="background-color: #E0E0E0" value="Pastel Silver"><div class="selected"></div></button>
+            <button style="background-color: #FDE67B" value="Pastel Gold"><div class="selected"></div></button>
+            <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>
+            <button style="background-color: #F79300" value="Bitcoin"><div class="selected"></div></button>
+            <button style="background-color: #FFCB23" value="Hint"><div class="selected"></div></button>
+            <button style="background-color: #DDEEBF" value="Key Lime Meringue"><div class="selected"></div></button>
+            <button style="background-color: #CBCAC8" value="Platinum"><div class="selected"></div></button>
+            <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
+            <button style="background-color: #595959" value="Wrong"><div class="selected"></div></button>
+            <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
+            <button style="background-color: #6DCF63" value="Correct"><div class="selected"></div></button>
+            <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
+            <button style="background-color: #7C7FFC" value="Superlative Purple"><div class="selected"></div></button>
+            <button style="background-color: #FBEC83" value="Superlative Yellow"><div class="selected"></div></button>
+            <button style="background-color: #FFD7EE" value="Superlative Pink"><div class="selected"></div></button>
+            <button style="background-color: #54D4EC" value="Superlative Blue"><div class="selected"></div></button>
+            <button style="background: linear-gradient(#3DCC99, #BEA1FF)" value="World of Green Purple"><div class="selected"></div></button>
+            <button style="background: linear-gradient(#8C2986, #F84077)" value="World of Purple Pink"><div class="selected"></div></button>
+            <button style="background-color: #46416F" value="Purple Bean"><div class="selected"></div></button>
+            <button style="background-color: #304476" value="Spirit Bean"><div class="selected"></div></button>
+            <button style="background-color: #C61F3F" value="Red Bean"><div class="selected"></div></button>
+            <button style="background-color: #485ADD" value="Chill Cat"><div class="selected"></div></button>
+            <button style="background-color: #F82B6B" value="Classy Cat"><div class="selected"></div></button>
+            <button style="background: linear-gradient(#90A3F8, #9FFBFF)" value="Pastel X"><div class="selected"></div></button>
+            <button style="background: linear-gradient(#67FCD5, #FFFFFF)" value="Minty Paradise"><div class="selected"></div></button>
+            <button style="background-color: #63D3FF" value="mf blue"><div class="selected"></div></button>
+            <button style="background-color: #FFE561" value="mf yellow"><div class="selected"></div></button>
+            <button style="background-color: #727435" value="Army Ape"><div class="selected"></div></button>
+            <button style="background-color: #A3E5F4" value="Blue Ape"><div class="selected"></div></button>
+            <button style="background-color: #E4E6A8" value="Yellow Ape"><div class="selected"></div></button>
+            <button style="background-color: #30e9b7" value="Turquoise Ape"><div class="selected"></div></button>
+            <button style="background-color: #6F5C70" value="Purple Ape"><div class="selected"></div></button>
+            <button style="background-color: #7A633F" value="Boat Ape"><div class="selected"></div></button>
+            <button style="background: linear-gradient(#6a0745 33%, #8e045b 33% 67%, #af1c60 67%)" value="Shades Punk"><div class="selected"></div></button>
+            <button style="background-color: #8665AC" value="Bidding Punk"><div class="selected"></div></button>
+            <button style="background-color: #8C4F4C" value="Paper Hands Punk"><div class="selected"></div></button>
+            <button style="background-color: #638497" value="HODLR Punk"><div class="selected"></div></button>
+          </div>
           <br>
-          <h1>Mode</h1>
-            <form name="mode_form">
-              <input type="radio" id="mode-dark" name="mode_group" value="Dark" checked="checked">
-              <label for="mode-dark">Dark</label><br>
-              <input type="radio" id="mode-light" name="mode_group" value="Light">
-              <label for="mode-light">Light</label><br>
-              <input type="radio" id="mode-pastel" name="mode_group" value="Pastel">
-              <label for="mode-pastel">Pastel</label><br>
-              <input type="radio" id="mode-mfers" name="mode_group" value="mfers">
-              <label for="mode-mfers">mfers</label><br>
-              <input type="radio" id="mode-nsev" name="mode_group" value="1997">
-              <label for="mode-nsev">1997</label><br>
-              <input type="radio" id="mode-sl" name="mode_group" value="Superlative">
-              <label for="mode-sl">Superlative</label><br>
-            </form>
+          <br>
+          <h1 class="theme-div-header">
+            Mode <span class="theme-display-text" id="mode-display">Dark</span>
+          </h1>
+          <div class="theme-div" id="modes-div">
+            <button style="background: linear-gradient(45deg, #787c7e 36%, #c9b458 36% 64%, #6aaa64 64% 100%)" value="Light"><div class="selected"></div></button>
+            <button class="chosen" style="background: linear-gradient(45deg, #464646 36%, #bb9112 36% 64%, #279c4e 64% 100%)" value="Dark"><div class="selected"></div></button>
+            <button style="background: linear-gradient(45deg, #464646 36%, #89C1F7 36% 64%, #f5793a 64% 100%)" value="High Contrast"><div class="selected"></div></button>
+            <button style="background: linear-gradient(45deg, #717171 36%, #6ad159 36% 64%, #e07e7b 64% 100%)" value="Pastel"><div class="selected"></div></button>
+            <button style="background: linear-gradient(45deg, #ff6c78 36%, #b9ff6d 36% 64%, #ffb76f 64% 100%)" value="mfers"><div class="selected"></div></button>
+            <button style="background: linear-gradient(45deg, #fd8fce 36%, #60e9b3 36% 64%, #f4dd5a 64% 100%)" value="Superlative"><div class="selected"></div></button>
+          </div>
         </div>
       </div>
 

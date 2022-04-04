@@ -35,13 +35,13 @@ export default class extends AbstractView {
               If you solve the <b>HODLE</b>, each <b>HODLE Board</b> you hold will enter the prize pool. The more <b> HODLE Boards</b> you hold, the higher your daily rewards.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 60px; letter-spacing: 1.5px;">
-            <span style="color:#F0C030;"><b>FIRST 100</b><span style="float:right; letter-spacing: 0px;">5x Weighted Share</span></span>
+            <span style="color:#F0C030;"><b>FASTEST 100</b><span style="float:right; letter-spacing: 0px;">5x Weighted Share</span></span>
             <br>
             <br>
-            <span style="color:#AAAAAA;"><b>FIRST 500</b><span style="float:right; letter-spacing: 0px;">3x Weighted Share</span></span>
+            <span style="color:#AAAAAA;"><b>FASTEST 500</b><span style="float:right; letter-spacing: 0px;">3x Weighted Share</span></span>
             <br>
             <br>
-            <span style="color:#D47C21;"><b>FIRST 1000</b><span style="float:right; letter-spacing: 0px;"> 1.5x Weighted Share</span></span>
+            <span style="color:#D47C21;"><b>FASTEST 1000</b><span style="float:right; letter-spacing: 0px;"> 1.5x Weighted Share</span></span>
             <br>
             <br>
             <b>ALL WINNERS</b><span style="float:right; letter-spacing: 0px;">1x Weighted Share</span>
