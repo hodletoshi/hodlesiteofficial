@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "slove";
+let word = "royal";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -699,8 +699,11 @@ function shareResults() {
     topMessage("Copied to Clipboard!");
   }
   */
-  
-  navigator.share({text: sharecopy});
+
+  navigator.clipboard.writeText(sharecopy + "\nhttps://hodle.io");
+  topMessage("Copied to Clipboard!");
+
+  //navigator.share({text: sharecopy});
 }
 
 
