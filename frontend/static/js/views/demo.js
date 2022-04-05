@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "dream";
+let word = "slove";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -685,6 +685,7 @@ function shareResults() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   const sharecopy = getShareCopy("Demo");
 
+  /*
 	if ( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ) {
     const dest = "sms://&body=" + sharecopy.replace(/\n/g, "%0a") + "%0ahttps://hodle.io";
     window.open(dest);
@@ -697,6 +698,9 @@ function shareResults() {
     navigator.clipboard.writeText(sharecopy + "\nhttps://hodle.io");
     topMessage("Copied to Clipboard!");
   }
+  */
+
+  navigator.share(sharecopy);
 }
 
 
