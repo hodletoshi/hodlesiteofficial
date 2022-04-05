@@ -699,8 +699,8 @@ function shareResults() {
     topMessage("Copied to Clipboard!");
   }
   */
-
-  navigator.share(sharecopy);
+  
+  navigator.share({text: sharecopy});
 }
 
 
