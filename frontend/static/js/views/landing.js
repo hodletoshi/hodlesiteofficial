@@ -38,6 +38,7 @@ export default class extends AbstractView {
 
       if (document.contains(document.getElementById("settings-button"))) {
         document.getElementById("settings-button").remove();
+        document.getElementById("help-button").remove();
       }
 
       return `

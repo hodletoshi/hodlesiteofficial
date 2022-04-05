@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "trope";
+let word = "sweet";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -96,6 +96,7 @@ function updateMode() {
 
   var keyList = document.getElementsByClassName('keyboard-key');
   for (var i = 0; i < keyList.length; ++i) {
+
     if (keyList[i].classList.contains('incorrect')) {
       keyList[i].style.backgroundColor = mode_config[mode][0];
 
@@ -106,6 +107,8 @@ function updateMode() {
       keyList[i].style.backgroundColor = mode_config[mode][2];
     }
   }
+
+  document.getElementById("howto_tiles").src = `/static/img/howtoplay_wagmi_${mode}.png`;
 }
 
 function updateTheme() {
@@ -215,13 +218,13 @@ function getTileColor(letter, index) {
   // return "rgb(181, 159, 59)";
 }
 
-function getShareCopy() {
+function getShareCopy(hodle_num) {
   var returnStr = "";
   if (guessedWordCount > 5) {
-    returnStr = `HODLE 1  X/5\n\n`;
+    returnStr = `HODLE ${hodle_num} X/5\n\n`;
 
   } else {
-    returnStr = `HODLE 1  ${guessedWordCount}/5\n\n`;
+    returnStr = `HODLE ${hodle_num} ${guessedWordCount}/5\n\n`;
   }
 
   for (var i = 1; i <= 25; i++) {
@@ -245,11 +248,44 @@ function getShareCopy() {
     }
 
     if (i % 5 == 0) {
-      returnStr += '\n';
+      returnStr += "\n";
     }
   }
 
   return returnStr;
+}
+
+function getShareCopyDisplay() {
+  var returnStr = "";
+
+  for (var i = 1; i <= 25; i++) {
+    const rawSquare = document.getElementById(`${i}`);
+
+    if (rawSquare.innerHTML == "") {
+      break;
+    }
+
+    if (rawSquare.classList.contains('incorrect')) {
+      // Black
+      returnStr += "⬛";
+
+    } else if (rawSquare.classList.contains('hint')) {
+      // Yellow
+      returnStr += "🟨";
+
+    } else if (rawSquare.classList.contains('correct')){
+      // Green
+      returnStr += "🟩";
+    }
+
+    if (i % 5 == 0) {
+      returnStr += '<br>';
+    } else {
+      returnStr += " ";
+    }
+  }
+
+  return returnStr + "<br>";
 }
 
 function getWordResult(wordArr) {
@@ -274,7 +310,7 @@ function getWordResult(wordArr) {
 
   // Scan for Yellow
   currentWordArr.forEach((letter, index) => {
-    if (word.includes(letter)) {
+    if (returnStr[index] != "C" && word.includes(letter)) {
       const numOccurencesInWord = word.split(letter).length - 1;
       const numOccurencesInHints = letter in hints ? hints[letter] : 0;
 
@@ -332,26 +368,36 @@ function handleSubmitWord() {
     const letterEl = document.getElementById(letterId);
     const keyEl = document.getElementById(letter.toLowerCase());
 
+
     if (tileColor == mode_config[mode][0]) {
       letterEl.classList.toggle("incorrect");
-      keyEl.classList.toggle("incorrect");
-
-      setTimeout(() => {
-        document.querySelector(`#${letter}`).disabled = true;
-        document.querySelector(`#${letter}`).style.backgroundColor = mode_config[mode][0];
-      }, 1700);
+      if (!keyEl.classList.contains("incorrect") && !keyEl.classList.contains("hint") && !keyEl.classList.contains("correct")) {
+        keyEl.classList.toggle("incorrect");
+        setTimeout(() => {
+          document.querySelector(`#${letter}`).disabled = true;
+          document.querySelector(`#${letter}`).style.backgroundColor = mode_config[mode][0];
+          document.querySelector(`#${letter}`).style.opacity = 0.5;
+        }, 1700);
+      }
 
     } else if (tileColor == mode_config[mode][1]) {
       letterEl.classList.toggle("hint");
-      keyEl.classList.toggle("hint");
-
-      setTimeout(() => {
-        document.querySelector(`#${letter}`).style.backgroundColor = mode_config[mode][1];
-      }, 1700);
+      if (!keyEl.classList.contains("hint") && !keyEl.classList.contains("correct")) {
+        keyEl.classList.toggle("hint");
+        setTimeout(() => {
+          document.querySelector(`#${letter}`).style.backgroundColor = mode_config[mode][1];
+        }, 1700);
+      }
 
     } else if (tileColor == mode_config[mode][2]) {
       letterEl.classList.toggle("correct");
-      keyEl.classList.toggle("correct");
+      if (!keyEl.classList.contains("correct")) {
+        keyEl.classList.toggle("correct");
+        setTimeout(() => {
+          document.querySelector(`#${letter}`).disabled = false;
+          document.querySelector(`#${letter}`).style.opacity = 1;
+        }, 1705);
+      }
 
       setTimeout(() => {
         document.querySelector(`#${letter}`).style.backgroundColor = mode_config[mode][2];
@@ -371,9 +417,6 @@ function handleSubmitWord() {
   guessedWordCount += 1;
 
   if (currentWord === word) {
-    const sharecopy = getShareCopy();
-    navigator.clipboard.writeText(sharecopy);
-
     currentWordArr.forEach((letter, index) => {
       const letterId = firstLetterId + index;
       const letterEl = document.getElementById(letterId);
@@ -381,17 +424,14 @@ function handleSubmitWord() {
     });
 
     setTimeout(function() {
-      confirm("Congratulations! Your board was copied to your clipboard.");
-    }, 4000);
+      openShare("Amazing!");
+    }, 3000);
   }
 
   if (guessedWords.length === 6) {
-    const sharecopy = getShareCopy();
-    navigator.clipboard.writeText(sharecopy);
-
     setTimeout(function() {
-      confirm(`Sorry, you have no more guesses! The word is ${word}.\nPress 'OK' to copy your board to your clipboard.`);
-    }, 2000);
+      openShare("Keep HODLing!");
+    }, 3000);
   }
 
   guessedWords.push([]);
@@ -541,36 +581,122 @@ function closeNav() {
   document.getElementById("overlaySettings").style.left = "-105vw";
 }
 
-function addSettingsButton() {
-  const headerEl = document.querySelector('.headernav');
-  headerEl.innerHTML = headerEl.innerHTML + "<button id='settings-button' style='height: 30px; float: right; margin-right: 70px; margin-top: 5px;'>SETTINGS</button>";
+function openHowTo() {
+  document.getElementById("overlayHowTo").style.left = "0";
+  document.getElementById("howto-closebtn").addEventListener("click", closeHowTo, false);
+}
 
-  document.getElementById("settings-button").addEventListener ("click", openNav, false);
+function closeHowTo() {
+  document.getElementById("overlayHowTo").style.left = "-105vw";
+}
+
+function addHowToButton() {
+  const newHeader = document.querySelector('.headernav');
+  newHeader.innerHTML = newHeader.innerHTML + `<button id="help-button"><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 0 24 24" width="28">
+    <path fill="white" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
+  </svg></button>`;
+
+  document.getElementById("help-button").addEventListener("click", openHowTo, false);
+  document.getElementById("settings-button").addEventListener("click", openNav, false);
+}
+
+function addPlayButtons() {
+  const headerEl = document.querySelector('.headernav');
+  headerEl.innerHTML = headerEl.innerHTML + `<button id="settings-button"><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 0 24 24" width="28"><path fill="white" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"></path></svg></button>`;
+
+  addHowToButton();
 }
 
 function handleThemeClick(event) {
   const clickedbtn = event.target;
 
-  document.getElementById("themes-div").getElementsByClassName("chosen")[0].classList.toggle("chosen");
-  clickedbtn.classList.toggle("chosen");
+  if (clickedbtn.value != undefined) {
+    document.getElementById("themes-div").getElementsByClassName("chosen")[0].classList.toggle("chosen");
+    clickedbtn.classList.toggle("chosen");
 
-  theme = clickedbtn.value;
+    theme = clickedbtn.value;
 
-  document.getElementById("theme-display").innerHTML = theme;
-  updateTheme();
-  updateMode();
+    var theme_display = document.getElementById("theme-display");
+    theme_display.innerHTML = theme;
+    if (clickedbtn.classList.contains("special")) {
+      theme_display.style.color = 'gold';
+      theme_display.innerHTML += " ✨";
+    } else {
+      theme_display.style.color = '';
+    }
+
+    updateTheme();
+    updateMode();
+  }
 }
 
 function handleModeClick(event) {
   const clickedbtn = event.target;
 
-  document.getElementById("modes-div").getElementsByClassName("chosen")[0].classList.toggle("chosen");
-  clickedbtn.classList.toggle("chosen");
+  if (clickedbtn.value != undefined) {
+    document.getElementById("modes-div").getElementsByClassName("chosen")[0].classList.toggle("chosen");
 
-  mode = clickedbtn.value;
+    clickedbtn.classList.toggle("chosen");
+    mode = clickedbtn.value;
 
-  document.getElementById("mode-display").innerHTML = mode;
-  updateMode();
+    var mode_display = document.getElementById("mode-display");
+    mode_display.innerHTML = mode;
+    if (clickedbtn.classList.contains("special")) {
+      mode_display.style.color = 'gold';
+      mode_display.innerHTML += " ✨";
+    } else {
+      mode_display.style.color = '';
+    }
+
+    updateMode();
+  }
+}
+
+function openShare(topMessage) {
+  document.getElementById('results-title').innerHTML = topMessage;
+  document.getElementById('results-squares').innerHTML = getShareCopyDisplay();
+
+  document.getElementById('fs-transparent').style.left = "0";
+  document.getElementById('overlayResults').style.left = "0";
+}
+
+function closeShare() {
+  document.getElementById('fs-transparent').style.left = "-105vw";
+  document.getElementById('overlayResults').style.left = "-105vw";
+}
+
+function topMessage(msg) {
+  document.getElementById('top-message').innerHTML = msg;
+  document.getElementById('top-message-div').style.left = "0";
+
+  document.getElementById('top-message-div').style.transition = "opacity 1s ease-in-out";
+
+  setTimeout(function() {
+    document.getElementById('top-message-div').style.opacity = 0;
+
+    setTimeout(function() {
+      document.getElementById('top-message-div').style.left = "-105vw";
+      document.getElementById('top-message-div').style.transition = "none";
+    }, 1200);
+  }, 3000);
+}
+
+function shareResults() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const sharecopy = getShareCopy("Demo");
+
+	if ( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ) {
+    const dest = "sms://&body=" + sharecopy.replace(/\n/g, "%0a") + "%0ahttps://hodle.io";
+    window.open(dest);
+
+  } else if ( userAgent.match( /Android/i ) ) {
+    const dest = "sms://?body=" + sharecopy.replace(/\n/g, "%0a") + "%0ahttps://hodle.io";
+    window.open(dest);
+
+  } else {
+    navigator.clipboard.writeText(sharecopy + "\nhttps://hodle.io");
+    topMessage("Copied to Clipboard!");
+  }
 }
 
 
@@ -581,7 +707,7 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
-      addSettingsButton();
+      addPlayButtons();
 
       setMyKeyDownListener();
       setTimeout(startFunc, 1000)
@@ -603,48 +729,62 @@ export default class extends AbstractView {
           modeButtons[i].addEventListener("click", handleModeClick);
         }
 
-        /*
-        var themes = document.theme_form.theme_group;
-        var prev_theme = null;
-        for (var i = 0; i < themes.length; i++) {
-            themes[i].addEventListener('change', function() {
-                if (this !== prev_theme) {
-                    prev_theme = this;
-                    theme = this.value;
-                    updateTheme();
-                    updateMode();
-                }
-            });
-        }
-
-        var modes = document.mode_form.mode_group;
-        var prev_mode = null;
-        for (var i = 0; i < modes.length; i++) {
-            modes[i].addEventListener('change', function() {
-                if (this !== prev_mode) {
-                    prev_mode = this;
-                    mode = this.value;
-                    updateMode();
-                }
-            });
-        }
-        */
+        document.getElementById('results-share').addEventListener("click", shareResults);
+        document.getElementById('share-closebtn').addEventListener("click", closeShare);
       }, 1000);
 
       return `
       <link rel="stylesheet" href="/static/css/game.css">
 
       <!-- Full screen loader overlay -->
-      <div id="fsoverlay" style="width: 100vw; height: 100vw; background-color: #161616; z-index: 9000; position: fixed;"></div>
+      <div id="fsoverlay"></div>
+
+      <!-- Top Message -->
+      <div id="top-message-div">
+        <div id="top-message">
+          Copied to Clipboard!
+        </div>
+      </div>
+
+      <!-- Share results -->
+      <div id="fs-transparent"></div>
+      <div id="overlayResults">
+        <a href="javascript:void(0)" id="share-closebtn" class="settings-right-nav">
+          <img src="/static/img/x_white.svg" style="height: 20px;">
+        </a>
+        <h1 id="results-title">
+          Amazing!
+        </h1>
+        <h2 id="results-squares">
+          🟩 🟩 🟩 🟩 🟩
+          <br>
+          🟩 🟩 🟩 🟩 🟩
+          <br>
+          🟩 🟩 🟩 🟩 🟩
+          <br>
+          🟩 🟩 🟩 🟩 🟩
+          <br>
+          🟩 🟩 🟩 🟩 🟩
+          <br>
+          <br>
+        </h2>
+        <button id="results-share">
+          SHARE
+        </button>
+      </div>
 
       <!-- The overlay -->
       <div id="overlaySettings" class="settings-overlay">
 
         <!-- Button to close the overlay navigation -->
         <div class="headernav" id="settingsheadernav">
-          <img src="/static/img/settings-tiles.png" style="text-align: center; height: 40px;"></img>
-          <a class="settings-left-nav"><img src="/static/img/wallet-icon.svg" style="height: 20px;"></img></a>
-          <a href="javascript:void(0)" id="settings-closebtn" class="settings-right-nav"><img src="/static/img/wallet-icon.svg" style="height: 20px;"></img></a>
+          <img id="settingslogo" src="/static/img/settings-tiles.png"></img>
+          <!--
+          <a class="settings-left-nav">
+            <img src="/static/img/wallet-icon.svg" style="height: 20px;"></img>
+          </a>
+          -->
+          <a href="javascript:void(0)" id="settings-closebtn" class="settings-right-nav"><img id="settings-closebtn-x" src="/static/img/x_white.svg"></img></a>
         </div>
 
         <!-- Overlay content -->
@@ -654,7 +794,17 @@ export default class extends AbstractView {
           </h1>
           <div class="theme-div" id="themes-div">
             <button style="background-color: #FFFFFF" value="Light"><div class="selected" id="theme-dark"></div></button>
-            <button class="chosen" style="background-color: #161616" value="Dark"><div class="selected"></div></button>
+            <button class="chosen" style="background-color: #3a3a3c" value="Dark"><div class="selected"></div></button>
+            <button style="background-color: #595959" value="Wrong"><div class="selected"></div></button>
+            <button style="background-color: #FFCB23" value="Hint"><div class="selected"></div></button>
+            <button style="background-color: #6DCF63" value="Correct"><div class="selected"></div></button>
+            <button style="background-color: #DDEEBF" value="Key Lime Meringue"><div class="selected"></div></button>
+            <button style="background-color: #CBCAC8" value="Platinum"><div class="selected"></div></button>
+            <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
+            <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
+            <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
+            <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>
+            <button style="background-color: #F79300" value="Bitcoin"><div class="selected"></div></button>
             <button style="background-color: #FAE4CC" value="Pastel Acorn"><div class="selected"></div></button>
             <button style="background-color: #C8E7F1" value="Pastel Aqua"><div class="selected"></div></button>
             <button style="background-color: #FDB6B6" value="Pastel Cherry"><div class="selected"></div></button>
@@ -662,41 +812,31 @@ export default class extends AbstractView {
             <button style="background-color: #BEA6E0" value="Pastel Galaxy"><div class="selected"></div></button>
             <button style="background-color: #E0E0E0" value="Pastel Silver"><div class="selected"></div></button>
             <button style="background-color: #FDE67B" value="Pastel Gold"><div class="selected"></div></button>
-            <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>
-            <button style="background-color: #F79300" value="Bitcoin"><div class="selected"></div></button>
-            <button style="background-color: #FFCB23" value="Hint"><div class="selected"></div></button>
-            <button style="background-color: #DDEEBF" value="Key Lime Meringue"><div class="selected"></div></button>
-            <button style="background-color: #CBCAC8" value="Platinum"><div class="selected"></div></button>
-            <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
-            <button style="background-color: #595959" value="Wrong"><div class="selected"></div></button>
-            <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
-            <button style="background-color: #6DCF63" value="Correct"><div class="selected"></div></button>
-            <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
-            <button style="background-color: #7C7FFC" value="Superlative Purple"><div class="selected"></div></button>
-            <button style="background-color: #FBEC83" value="Superlative Yellow"><div class="selected"></div></button>
-            <button style="background-color: #FFD7EE" value="Superlative Pink"><div class="selected"></div></button>
-            <button style="background-color: #54D4EC" value="Superlative Blue"><div class="selected"></div></button>
-            <button style="background: linear-gradient(#3DCC99, #BEA1FF)" value="World of Green Purple"><div class="selected"></div></button>
-            <button style="background: linear-gradient(#8C2986, #F84077)" value="World of Purple Pink"><div class="selected"></div></button>
-            <button style="background-color: #46416F" value="Purple Bean"><div class="selected"></div></button>
-            <button style="background-color: #304476" value="Spirit Bean"><div class="selected"></div></button>
-            <button style="background-color: #C61F3F" value="Red Bean"><div class="selected"></div></button>
-            <button style="background-color: #485ADD" value="Chill Cat"><div class="selected"></div></button>
-            <button style="background-color: #F82B6B" value="Classy Cat"><div class="selected"></div></button>
-            <button style="background: linear-gradient(#90A3F8, #9FFBFF)" value="Pastel X"><div class="selected"></div></button>
-            <button style="background: linear-gradient(#67FCD5, #FFFFFF)" value="Minty Paradise"><div class="selected"></div></button>
-            <button style="background-color: #63D3FF" value="mf blue"><div class="selected"></div></button>
-            <button style="background-color: #FFE561" value="mf yellow"><div class="selected"></div></button>
-            <button style="background-color: #727435" value="Army Ape"><div class="selected"></div></button>
-            <button style="background-color: #A3E5F4" value="Blue Ape"><div class="selected"></div></button>
-            <button style="background-color: #E4E6A8" value="Yellow Ape"><div class="selected"></div></button>
-            <button style="background-color: #30e9b7" value="Turquoise Ape"><div class="selected"></div></button>
-            <button style="background-color: #6F5C70" value="Purple Ape"><div class="selected"></div></button>
-            <button style="background-color: #7A633F" value="Boat Ape"><div class="selected"></div></button>
-            <button style="background: linear-gradient(#6a0745 33%, #8e045b 33% 67%, #af1c60 67%)" value="Shades Punk"><div class="selected"></div></button>
-            <button style="background-color: #8665AC" value="Bidding Punk"><div class="selected"></div></button>
-            <button style="background-color: #8C4F4C" value="Paper Hands Punk"><div class="selected"></div></button>
-            <button style="background-color: #638497" value="HODLR Punk"><div class="selected"></div></button>
+            <button class="special" style="background-color: #7C7FFC" value="Superlative Purple"><div class="selected"></div></button>
+            <button class="special" style="background-color: #FBEC83" value="Superlative Yellow"><div class="selected"></div></button>
+            <button class="special" style="background-color: #FFD7EE" value="Superlative Pink"><div class="selected"></div></button>
+            <button class="special" style="background-color: #54D4EC" value="Superlative Blue"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(#3DCC99, #BEA1FF)" value="World of Green Purple"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(#8C2986, #F84077)" value="World of Purple Pink"><div class="selected"></div></button>
+            <button class="special" style="background-color: #46416F" value="Purple Bean"><div class="selected"></div></button>
+            <button class="special" style="background-color: #304476" value="Spirit Bean"><div class="selected"></div></button>
+            <button class="special" style="background-color: #C61F3F" value="Red Bean"><div class="selected"></div></button>
+            <button class="special" style="background-color: #485ADD" value="Chill Cat"><div class="selected"></div></button>
+            <button class="special" style="background-color: #F82B6B" value="Classy Cat"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(#90A3F8, #9FFBFF)" value="Pastel X"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(#67FCD5, #FFFFFF)" value="Minty Paradise"><div class="selected"></div></button>
+            <button class="special" style="background-color: #63D3FF" value="mf blue"><div class="selected"></div></button>
+            <button class="special" style="background-color: #FFE561" value="mf yellow"><div class="selected"></div></button>
+            <button class="special" style="background-color: #727435" value="Army Ape"><div class="selected"></div></button>
+            <button class="special" style="background-color: #A3E5F4" value="Blue Ape"><div class="selected"></div></button>
+            <button class="special" style="background-color: #E4E6A8" value="Yellow Ape"><div class="selected"></div></button>
+            <button class="special" style="background-color: #30e9b7" value="Turquoise Ape"><div class="selected"></div></button>
+            <button class="special" style="background-color: #6F5C70" value="Purple Ape"><div class="selected"></div></button>
+            <button class="special" style="background-color: #7A633F" value="Boat Ape"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(#6a0745 33%, #8e045b 33% 67%, #af1c60 67%)" value="Shades Punk"><div class="selected"></div></button>
+            <button class="special" style="background-color: #8665AC" value="Bidding Punk"><div class="selected"></div></button>
+            <button class="special" style="background-color: #8C4F4C" value="Paper Hands Punk"><div class="selected"></div></button>
+            <button class="special" style="background-color: #638497" value="HODLR Punk"><div class="selected"></div></button>
           </div>
           <br>
           <br>
@@ -708,8 +848,55 @@ export default class extends AbstractView {
             <button class="chosen" style="background: linear-gradient(45deg, #464646 36%, #bb9112 36% 64%, #279c4e 64% 100%)" value="Dark"><div class="selected"></div></button>
             <button style="background: linear-gradient(45deg, #464646 36%, #89C1F7 36% 64%, #f5793a 64% 100%)" value="High Contrast"><div class="selected"></div></button>
             <button style="background: linear-gradient(45deg, #717171 36%, #6ad159 36% 64%, #e07e7b 64% 100%)" value="Pastel"><div class="selected"></div></button>
-            <button style="background: linear-gradient(45deg, #ff6c78 36%, #b9ff6d 36% 64%, #ffb76f 64% 100%)" value="mfers"><div class="selected"></div></button>
-            <button style="background: linear-gradient(45deg, #fd8fce 36%, #60e9b3 36% 64%, #f4dd5a 64% 100%)" value="Superlative"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(45deg, #ff6c78 36%, #b9ff6d 36% 64%, #ffb76f 64% 100%)" value="mfers"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(45deg, #fd8fce 36%, #60e9b3 36% 64%, #f4dd5a 64% 100%)" value="Superlative"><div class="selected"></div></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="overlayHowTo" class="settings-overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <div class="headernav" id="howtoheadernav">
+          <img id="howtoplaylogo" src="/static/img/how_to_play.png"></img>
+          <!--
+          <a class="settings-left-nav">
+            <img src="/static/img/wallet-icon.svg" style="height: 20px;"></img>
+          </a>
+          -->
+          <a href="javascript:void(0)" id="howto-closebtn" class="settings-right-nav"><img id="howto-closebtn-x" src="/static/img/x_white.svg"></img></a>
+        </div>
+
+        <!-- Overlay content -->
+        <div class="howto-overlay-content">
+          <h1 class="top-title" style="font-size: 35px; margin-bottom: 20px;">
+            Guess the <span style="font-family:'HODLE'; font-size: 40px;">Hodle</span> in five tries.
+          </h1>
+          <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
+            Each guess must be a five letter word. <span style="font-family:'HODLE'; font-size: 25px;">Hodle</span> includes crypto-related phrases, words, and abbreviations.
+            <br>
+          </h2>
+          <div class="content-div">
+            <h2 style="font-weight: normal; line-height: 22px;">
+              After each guess, the color of the tiles will change to reveal how close your guess was to the <span style="font-family:'HODLE'; font-size: 21px;">Hodle</span>.<br><br>
+            </h2>
+            <h2 style="text-align: left; line-height: 50px;">
+              For example,
+              <br>
+            </h2>
+            <img id="howto_tiles" src="/static/img/howtoplay_wagmi_Dark.png" style="height: 75px;"></img>
+            <h2 style="line-height: 25px;">
+            <b>W</b> is in the <span style="font-family:'HODLE'; font-size: 20px;">Hodle</span> in the correct spot.
+            <br>
+            <b>G</b> and <b>M</b> are in the <span style="font-family:'HODLE'; font-size: 20px;">Hodle</span>, but not in the correct spot.
+            <br>
+            <b>A</b> and <b>I</b> are not in the <span style="font-family:'HODLE'; font-size: 20px;">Hodle</span>.
+            </h2>
+          </div>
+          <div class="content-div content-div-bottom">
+            <h2 style="font-weight: normal; line-height: 20px;">
+              If a guessed letter is in the <span style="font-family:'HODLE'; font-size: 21px;">Hodle</span> more than once, the letter may show up as a hint more than once, if it is in the guess more than once.
+            </h2>
           </div>
         </div>
       </div>

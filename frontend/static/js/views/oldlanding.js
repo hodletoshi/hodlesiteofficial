@@ -10,6 +10,8 @@ export default class extends AbstractView {
       document.querySelector('#hodle-footer').style.opacity = "100%";
       document.querySelector('#hodle-footer').style.height = "60px";
 
+      document.body.style.backgroundColor = "#161616";
+
       return `
           <div class="landing-teaser" id="teaser">
             <img class="landing-teaser-img" id="teaser-img" src="static/img/teaser1.png"></img>

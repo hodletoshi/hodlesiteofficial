@@ -9,7 +9,10 @@ export default class extends AbstractView {
     async getHtml() {
       if (document.contains(document.getElementById("settings-button"))) {
         document.getElementById("settings-button").remove();
+        document.getElementById("help-button").remove();
       }
+
+      document.body.style.backgroundColor = "#161616";
 
       return `
           <div class="mint-img-div">

@@ -102,9 +102,17 @@
     font-display: swap;
 }
 
-
-
-
+@font-face {
+    font-family: 'HODLE';
+    src: url('font/HODLECondensed-Bold.eot');
+    src: url('font/HODLECondensed-Bold.eot?#iefix') format('embedded-opentype'),
+        url('font/HODLECondensed-Bold.woff2') format('woff2'),
+        url('font/HODLECondensed-Bold.woff') format('woff'),
+        url('font/HODLECondensed-Bold.ttf') format('truetype'),
+        url('font/HODLECondensed-Bold.svg#HODLECondensed-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* ***** STYLES ***** */
 
@@ -160,14 +168,14 @@ body {
 .header-logo {
   position: absolute;
 
-  background-image: url('../img/hodle_logo_6.png');
-  background-size: 270px 50px;
+  background-image: url('../img/hodle_logo_7.png');
+  background-size: 75px 50px;
   background-repeat: no-repeat;
 
-  width: 270px;
+  width: 75px;
   height: 50px;
 
-  margin-left: -136px;
+  margin-left: -35px;
 
   top: 8px;
 }
