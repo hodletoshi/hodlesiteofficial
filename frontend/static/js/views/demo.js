@@ -56,7 +56,9 @@ const theme_config = {
   'Shades Punk': ["#8b005c", "#ca7cb0", "white", "#d5dce0", "black", "shades_punk_bg.png"],
   'Bidding Punk': ["#8665ac", "#8000b7", "white", "#d5dce0", "black"],
   'Paper Hand Punk': ["#8c4f4c", "#a68685", "white", "#d5dce0", "black"],
-  'HODLR Punk': ["#638497", "#cafdfc", "#638497", "#d5dce0", "black"]
+  'HODLR Punk': ["#638497", "#cafdfc", "#638497", "#d5dce0", "black"],
+  'Extraterrestrial': ["#afc4af", "#ffff71", "#507577", "#818384", "white"],
+  'Interplanetary': ["#b164ff", "#b3faff", "#507577", "#d5dce0", "black"]
 };
 
 const mode_config = {
@@ -67,7 +69,8 @@ const mode_config = {
   'mfers': ["#ff6c78", "#ffb76f", "#b9ff6d"],
   'Pastel': ["#717171", "#de7a7a", "#6fd55a"],
   'High Contrast': ["#464646", "#f3763b", "#88bff9"],
-  'Superlative': ["#fd8fce", "#f4dd5a", "#60e9b3"]
+  'Superlative': ["#fd8fce", "#f4dd5a", "#60e9b3"],
+  'Alien': ["#507577", "#fc8286", "#51ffac"]
 };
 
 
@@ -428,7 +431,8 @@ function handleSubmitWord() {
     }, 3000);
   }
 
-  if (guessedWords.length === 6) {
+  if (guessedWords.length === 5) {
+    guessedWordCount += 1;
     setTimeout(function() {
       openShare("Keep HODLing!");
     }, 3000);
@@ -592,9 +596,13 @@ function closeHowTo() {
 
 function addHowToButton() {
   const newHeader = document.querySelector('.headernav');
+  /*
   newHeader.innerHTML = newHeader.innerHTML + `<button id="help-button"><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 0 24 24" width="28">
     <path fill="white" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
   </svg></button>`;
+*/
+
+  newHeader.innerHTML = newHeader.innerHTML + `<button id="help-button" style="margin-top: 5px;"><svg style="fill: white" viewBox="0 0 100 100" width="25" height="25"><path d="M37.75 82.7q-.15 1.55-.15 4.55v2.25q0 5.45 2.25 7.7Q43 100 48.6 100q5.75 0 8.55-.85 2.65-.9 4.05-3.5 1.2-2.65 1.2-7.9 0-7.5-2.45-10.1-2.6-2.45-8.55-2.45-5.8 0-8.55.85-2.65.9-3.85 3-1.05 2.1-1.25 3.65m5.6-59.8q2.45-1.55 7.15-1.55 5.1 0 7.55 2.25 2.45 2.45 2.45 6.85 0 4.15-3.35 6.8-3.3 2.45-7.15 3.65-3.7 1.05-7 4.4-3.3 3.15-3.3 8.9l-.2 1.05q0 2.8.2 4 .35 1.25 1.2 2.8.9 1.6 3.3 2.3 2.3.7 6.15.7 3.85 0 6.1-.7 2.45-.55 3.5-1.95.9-1.4 1.05-2.6.2-1.2.2-3.5l2.25-.5q5.05-1.95 10.85-7.55 2.95-2.8 4.9-7.5 2.1-4.9 2.1-10.65 0-12.1-8.95-21Q63.45 0 49.45 0q-6.6 0-12.2 2.3Q32 4.4 28.85 7q-3 2.6-5.25 6.1-2.3 3.5-3 4.75-.5 1.4-1.2 3.5t-.7 4q0 4.55 7.85 7.7 4.2 1.55 6.65 1.55t4.05-1.7q1.75-1.95 2.95-5.25l.35-1.75q.55-1.6 2.8-3Z"></path></svg></button>`
 
   document.getElementById("help-button").addEventListener("click", openHowTo, false);
   document.getElementById("settings-button").addEventListener("click", openNav, false);
@@ -714,8 +722,6 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
-      addPlayButtons();
-
       setMyKeyDownListener();
       setTimeout(startFunc, 1000)
 
@@ -726,6 +732,15 @@ export default class extends AbstractView {
       setTimeout(function() {
         document.querySelector('#fsoverlay').remove();
 
+        document.getElementById('overlayResults').style.opacity = 1;
+        document.getElementById('top-message-div').style.opacity = 1;
+        document.getElementById('overlayHowTo').style.opacity = 1;
+        document.getElementById('overlaySettings').style.opacity = 1;
+
+        addPlayButtons();
+      }, 500);
+
+      setTimeout(function() {
         var themeButtons = document.getElementById("themes-div").children;
         for (var i = 0; i < themeButtons.length; i++) {
           themeButtons[i].addEventListener("click", handleThemeClick);
@@ -747,7 +762,7 @@ export default class extends AbstractView {
       <div id="fsoverlay"></div>
 
       <!-- Top Message -->
-      <div id="top-message-div">
+      <div id="top-message-div" style="opacity: 0">
         <div id="top-message">
           Copied to Clipboard!
         </div>
@@ -755,7 +770,7 @@ export default class extends AbstractView {
 
       <!-- Share results -->
       <div id="fs-transparent"></div>
-      <div id="overlayResults">
+      <div id="overlayResults" style="opacity: 0">
         <a href="javascript:void(0)" id="share-closebtn" class="settings-right-nav">
           <img src="/static/img/x_white.svg" style="height: 20px;">
         </a>
@@ -781,7 +796,7 @@ export default class extends AbstractView {
       </div>
 
       <!-- The overlay -->
-      <div id="overlaySettings" class="settings-overlay">
+      <div id="overlaySettings" class="settings-overlay" style="opacity: 0">
 
         <!-- Button to close the overlay navigation -->
         <div class="headernav" id="settingsheadernav">
@@ -844,6 +859,8 @@ export default class extends AbstractView {
             <button class="special" style="background-color: #8665AC" value="Bidding Punk"><div class="selected"></div></button>
             <button class="special" style="background-color: #8C4F4C" value="Paper Hands Punk"><div class="selected"></div></button>
             <button class="special" style="background-color: #638497" value="HODLR Punk"><div class="selected"></div></button>
+            <button class="special" style="background-color: #b164ff" value="Interplanetary"><div class="selected"></div></button>
+            <button class="special" style="background-color: #afc4af" value="Extraterrestrial"><div class="selected"></div></button>
           </div>
           <br>
           <br>
@@ -851,17 +868,18 @@ export default class extends AbstractView {
             Mode <span class="theme-display-text" id="mode-display">Dark</span>
           </h1>
           <div class="theme-div" id="modes-div">
-            <button style="background: linear-gradient(45deg, #787c7e 36%, #c9b458 36% 64%, #6aaa64 64% 100%)" value="Light"><div class="selected"></div></button>
-            <button class="chosen" style="background: linear-gradient(45deg, #464646 36%, #bb9112 36% 64%, #279c4e 64% 100%)" value="Dark"><div class="selected"></div></button>
+            <button style="background: linear-gradient(45deg, #787c7e 36%, #6aaa64 36% 64%, #c9b458 64% 100%)" value="Light"><div class="selected"></div></button>
+            <button class="chosen" style="background: linear-gradient(45deg, #464646 36%, #279c4e 36% 64%, #bb9112 64% 100%)" value="Dark"><div class="selected"></div></button>
             <button style="background: linear-gradient(45deg, #464646 36%, #89C1F7 36% 64%, #f5793a 64% 100%)" value="High Contrast"><div class="selected"></div></button>
             <button style="background: linear-gradient(45deg, #717171 36%, #6ad159 36% 64%, #e07e7b 64% 100%)" value="Pastel"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #ff6c78 36%, #b9ff6d 36% 64%, #ffb76f 64% 100%)" value="mfers"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #fd8fce 36%, #60e9b3 36% 64%, #f4dd5a 64% 100%)" value="Superlative"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(45deg, #507577 36%, #60e9b3 36% 64%, #fc8286 64% 100%)" value="Alien"><div class="selected"></div></button>
           </div>
         </div>
       </div>
 
-      <div id="overlayHowTo" class="settings-overlay">
+      <div id="overlayHowTo" class="settings-overlay" style="opacity: 0">
 
         <!-- Button to close the overlay navigation -->
         <div class="headernav" id="howtoheadernav">

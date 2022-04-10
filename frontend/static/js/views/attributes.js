@@ -22,14 +22,14 @@ export default class extends AbstractView {
             Board <b>Attributes</b>
           </h1>
           <h2 class="title-subheader" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
-            Each <b>HODLE Board</b> is unique.
+            Each <span style="font-family: 'HODLE'; font-size: 25px;">Hodle Board</span> is unique.
             <br>
             Certain rare attributes provide in-game boosts and increase rewards.
           </h2>
           <div class="content-div">
             <h1 class="top-title">Themes</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The theme of your <b>HODLE Board</b> will be the theme that you play the <b>HODLE</b> game with.
+              The theme of your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> will be the theme that you play the <span style="font-family: 'HODLE'; font-size: 20px;">Hodle</span> game with.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
               <span style="color:#505050;"><b>Dark</b><span style="float:right;">4.0 %</span></span>
@@ -124,7 +124,7 @@ export default class extends AbstractView {
           <div class="content-div">
             <h1 class="top-title">Mode</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The mode of your <b>HODLE Board</b> determines the color of your correct, hint, and incorrect tiles when playing <b>HODLE</b>.
+              The mode of your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> determines the color of your correct, hint, and incorrect tiles when playing <span style="font-family: 'HODLE'; font-size: 20px;">Hodle</span>.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
               <span style="color:#717171;"><b>Dark</b><span style="float:right;">25.0 %</span></span>
@@ -147,7 +147,7 @@ export default class extends AbstractView {
           <div class="content-div">
             <h1 class="top-title">First Guess</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The first guess in your <b>HODLE Board</b> can give you <span style="text-decoration:underline">special abilities</span> when playing the <b>HODLE</b> game.
+              The first guess in your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> can give you <span style="text-decoration:underline">special abilities</span> when playing the <span style="font-family: 'HODLE'; font-size: 20px;">Hodle</span> game.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
               <b>HODLE</b><span style="float:right;">28.0 %</span>
@@ -168,7 +168,7 @@ export default class extends AbstractView {
           <div class="content-div">
             <h1 class="top-title">Second Guess</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The second guess in your <b>HODLE Board</b> is your <b>HODLE</b> identity. Choose from a variety of famous crypto & NFT terms.
+              The second guess in your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> is your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle</span> identity. Choose from a variety of famous NFT & crypto terms.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px;">
               <b>ALPHA</b><span style="float:right;">5.0 %</span>
@@ -215,7 +215,7 @@ export default class extends AbstractView {
           <div class="content-div content-div-bottom">
             <h1 class="top-title">Tiles</h1>
             <h2 style="font-weight: normal; line-height: 20px;">
-              The tiles attribute of your <b>HODLE Board</b> indicates how close your second guess was to the <b>HODLE</b>.
+              The tiles attribute directly affects the rarity and aesthetic of your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span>.
             </h2>
             <p style="text-align:left; margin-top: 50px; margin-bottom: 20px; line-height: 35px; color: #6ECF60;">
               <b>Genius</b><span style="float:right;">1.0 %</span>

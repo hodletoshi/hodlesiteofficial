@@ -19,8 +19,8 @@ export default class extends AbstractView {
             <img class="play-img"></img>
           </div>
           <div class="mint-text">
-            <h1 class="top-title">Oops! You need to own a <b>HODLE Board</b> to play <b>HODLE</b>.</h1>
-            <h2 class="title-subheader">Join our <a href="https://discord.com/invite/PZbZ4yeTrt" target="_blank"><span style="text-decoration: underline; cursor: pointer;">Discord</span></a> to find out when the <b>HODLE Board</b> mint opens.</h2>
+            <h1 class="top-title">Oops! <span style="font-family: 'HODLE'; font-size: 35px;">Hodle</span> isn't open yet.</h1>
+            <h2 class="title-subheader">In the meantime, check out the  <a href="https://hodle.io/demo" target="_blank">Demo</a> or join our <a href="https://discord.com/invite/PZbZ4yeTrt" target="_blank"><span style="text-decoration: underline; cursor: pointer;">Discord</span></a> to find out when the <span style="font-family: 'HODLE'; font-size: 25px;">Hodle Board</span> mint opens.</h2>
           </div>
       `;
     }

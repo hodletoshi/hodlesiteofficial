@@ -495,7 +495,7 @@ input[type=radio] {
 }
 
 #fsoverlay {
-  width: 100vw; height: 100vw; background-color: #161616; z-index: 9000; position: fixed;
+  width: 100vw; height: 100vw; background-color: #161616; z-index: 1000; position: fixed;
 }
 
 #top-message-div {

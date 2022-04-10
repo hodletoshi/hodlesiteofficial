@@ -523,7 +523,7 @@ body {
   user-select: none;
 }
 
-.blurred span {
+.blurred .unselectable {
   color: transparent;
   text-shadow: 0 0 12px rgba(255, 255, 255, 1);
 }

@@ -19,24 +19,24 @@ export default class extends AbstractView {
 
       return `
         <h1 class="top-title">
-          What is <b>HODLE?</b>
+          What is <span style="font-family:'HODLE'; font-size: 40px">Hodle</span>?</b>
           <br>
           <br>
           <img src="/static/img/hodle_guessing.gif" style="width: 350px; overflow:hidden;"></img>
         </h1>
         <h2 class="title-subheader blurred" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
-          <b>HODLE</b> is THE daily NFT and crypto game.
+          <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> is THE daily NFT and crypto game.
           <br><br>
-          If you can guess the <b>HODLE</b> in five tries, you are entered into the daily prize pool of $ETH and NFTs.
+          If you can guess the <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> in five tries, you are entered into the daily rewards pool.
           <br>
           <br>
-          Unlike every P2E project in the space, <b>HODLE</b> is the first <b>Solve 2 Earn</b> game.
+          Unlike every P2E project in the space, <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> is the first <b>Solve-2-Earn</b> game.
         </h2>
         <div class="content-div content-div-bottom">
           <h2 style="font-weight: normal; line-height: 20px;">
-            <b>HODLE</b> is an upcoming P2E (S2E) NFT word game where you can win daily prizes of both cash ($ETH) and NFTs.
+            <span style="font-family: 'HODLE'; font-size: 22px;">Hodle</span> is an upcoming P2E (S2E) NFT word game where you can win daily prizes of both cash (ETH) and NFTs.
             <br><br>
-            Only <b>HODLE Board</b> owners can earn rewards from <b>HODLE</b>.
+            Only <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> owners can earn rewards from <span style="font-family: 'HODLE'; font-size: 22px;">Hodle</span>.
             <br><br>
             You have five tries to guess a five-letter word related to cryptocurrencies and NFTs. You receive feedback on each guess in the shape of different coloured tiles.
             <br><br>

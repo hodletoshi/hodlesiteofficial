@@ -22,7 +22,7 @@ export default class extends AbstractView {
             <img class="mint-img"></img>
           </div>
           <div class="mint-text">
-            <h1 class="top-title">The <b>HODLE Board</b> mint isn't open.</h1>
+            <h1 class="top-title">The <span style="font-family: 'HODLE'; font-size: 35px;">Hodle Board</span> mint isn't open yet!</h1>
             <h2 class="title-subheader">Join our <a href="https://discord.com/invite/PZbZ4yeTrt" target="_blank"><span style="text-decoration: underline; cursor: pointer;">Discord</span></a> to find out when it will be.</h2>
           </div>
       `;

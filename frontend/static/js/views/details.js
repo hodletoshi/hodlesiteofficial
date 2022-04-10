@@ -22,7 +22,7 @@ export default class extends AbstractView {
           Mint <b>Details</b>
         </h1>
         <h2 class="title-subheader blurred" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
-          Minting will take place on the official <b>HODLE</b> website at <span class="unselectable">REDACTED EST</span> on <span class="unselectable">REDACTED</span>.
+          Minting will take place on the official <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> website at <span class="unselectable">REDACTED EST</span> on <span class="unselectable">REDACTED</span>.
           <br>
           <br>
           Minting will <b>NOT</b> open early.
@@ -33,18 +33,18 @@ export default class extends AbstractView {
           <h2 style="font-weight: normal; line-height: 20px;">
             To buy <span style="color:#93A2CC">Ethereum (ETH)</span>, use a secure crypto exchange.
             <br><br>
-            You need to make sure you have enough <span style="color:#93A2CC">Ethereum</span> to mint a <b>HODLE Board</b>. We <i>recommend</i> having at least another 0.02 ETH in your wallet to cover gas (transaction) fees.
+            You need to make sure you have enough <span style="color:#93A2CC">Ethereum</span> to mint a <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span>. We <i>recommend</i> having at least another 0.02 ETH in your wallet to cover gas (transaction) fees.
             <br><br>
-            Once you have purchased enough <span style="color:#93A2CC">Ethereum</span>, you need to transfer it to your <span style="color:#f6851b;">MetaMask</span> wallet. Instructions can be found <a href="https://metamask.io/faqs/" target="_blank" style="color: white; text-decoration: underline; cursor: pointer;">here</a>.
+            Once you have purchased enough <span style="color:#93A2CC">Ethereum</span>, you need to transfer it to your Web3 wallet. Instructions for <span style="color:#f6851b;">MetaMask</span> can be found <a href="https://metamask.io/faqs/" target="_blank" style="color: white; text-decoration: underline; cursor: pointer;">here</a>.
           </h2>
         </div>
         <div class="content-div">
           <h2 style="font-weight: normal; line-height: 20px;">
-            Once the mint is opened, you can connect your wallet to the <b>HODLE</b> website through the icon in the <span style="text-decoration: underline"><b>top right</b></span> of the screen.
+            Once the mint is opened, you can connect your wallet to the <span style="font-family: 'HODLE'; font-size: 20px;">Hodle</span> website through the icon in the <span style="text-decoration: underline"><b>top right</b></span> of the screen.
             <br><br>
             This icon will light up <span style="color: #538D4E;"><b>green</b></span> once you are successfully connected.
             <br><br>
-            You can't mint without connecting your <span style="color:#f6851b;">MetaMask</span> wallet.
+            You can't mint without connecting your Web3 wallet.
           </h2>
         </div>
         <div class="content-div content-div-bottom">
@@ -60,10 +60,10 @@ export default class extends AbstractView {
             <span style="color:#cab459;">NOT AVAILABLE YET</span>
             <br>
             <br>
-            Then, wait a few minutes for the <b>HODLE Board</b>(s) to show up in your wallet. At this point, you can also view your <b>HODLE Board</b>(s) on <span style="color:#15B2E5"><b>OpenSea</b></span>.
+            Then, wait a few minutes for the <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> to show up in your wallet. At this point, you can also view your <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> on <a style="text-decoration: none" target="_blank" href="https://opensea.io/collection/hodle"><span style="color:#15B2E5"><b>OpenSea</b></a></span>.
             <br>
             <br>
-            <span style="color:#69D05A;"><b>Congrats!</b></span> You are now a proud <b>HODLE Board</b> owner - we can't wait to see your <span style="color:#F5793A;"><b>streak</b></span> grow.
+            <span style="color:#69D05A;"><b>Congrats!</b></span> You are now a proud <span style="font-family: 'HODLE'; font-size: 20px;">Hodle Board</span> owner - we can't wait to see your <span style="font-family: 'HODLE'; font-size: 20px; color:#F5793A;">streak🔥</span> grow.
           </h2>
         </div>
       `;
