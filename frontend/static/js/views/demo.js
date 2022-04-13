@@ -224,10 +224,10 @@ function getTileColor(letter, index) {
 function getShareCopy(hodle_num) {
   var returnStr = "";
   if (guessedWordCount > 5) {
-    returnStr = `HODLE ${hodle_num} X/5\n\n`;
+    returnStr = `#HODLE ${hodle_num} X/5\n\n`;
 
   } else {
-    returnStr = `HODLE ${hodle_num} ${guessedWordCount}/5\n\n`;
+    returnStr = `#HODLE ${hodle_num} ${guessedWordCount}/5\n\n`;
   }
 
   for (var i = 1; i <= 25; i++) {
