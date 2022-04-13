@@ -429,9 +429,8 @@ function handleSubmitWord() {
     setTimeout(function() {
       openShare("Amazing!");
     }, 3000);
-  }
 
-  if (guessedWords.length === 5) {
+  } else if (guessedWords.length === 5) {
     guessedWordCount += 1;
     setTimeout(function() {
       openShare("Keep HODLing!");
