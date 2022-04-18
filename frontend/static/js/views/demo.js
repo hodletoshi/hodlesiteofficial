@@ -750,7 +750,17 @@ export default class extends AbstractView {
           modeButtons[i].addEventListener("click", handleModeClick);
         }
 
-        document.getElementById('results-share').addEventListener("click", shareResults);
+        //document.getElementById('results-share').addEventListener("click", shareResults);
+        document.getElementById('results-share').addEventListener("click", async () => {
+          const sharecopy = getShareCopy("Demo"); 
+          try {
+            await navigator.share({text: sharecopy});
+            topMessage("Copied to Clipboard!");
+          } catch (err) {
+            console.log("ERROR COPYING TO CLIPBOARD:");
+            console.log(err);
+          }
+        });
         document.getElementById('share-closebtn').addEventListener("click", closeShare);
       }, 1000);
 
