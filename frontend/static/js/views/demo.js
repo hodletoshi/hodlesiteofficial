@@ -761,7 +761,7 @@ export default class extends AbstractView {
             // Try copy to clipboard
               if (navigator.clipboard) { // default: modern asynchronous API
                 try {
-                  navigator.clipboard.writeText(text);
+                  navigator.clipboard.writeText(sharecopy);
                 } catch (err) {
                   console.log("ERROR CODE 1 COPYING TO CLIPBOARD");
                   console.log(err);
