@@ -752,14 +752,32 @@ export default class extends AbstractView {
 
         //document.getElementById('results-share').addEventListener("click", shareResults);
         document.getElementById('results-share').addEventListener("click", async () => {
-          const sharecopy = getShareCopy("Demo"); 
+          const sharecopy = getShareCopy("Demo");
+
+          if (navigator.share) {
+            navigator.share({text: sharecopy}).catch(console.error);
+
+          } else {
+            // Try copy to clipboard
+              if (navigator.clipboard) { // default: modern asynchronous API
+                try {
+                  navigator.clipboard.writeText(text);
+                } catch (err) {
+                  console.log("ERROR CODE 1 COPYING TO CLIPBOARD");
+                }
+              } else {
+                console.log("ERROR CODE 2 COPYING TO CLIPBOARD");
+              }
+          }
+          /*
           try {
             await navigator.share({text: sharecopy});
-            topMessage("Copied to Clipboard!");
+            //topMessage("Copied to Clipboard!");
           } catch (err) {
             console.log("ERROR COPYING TO CLIPBOARD:");
             console.log(err);
           }
+          */
         });
         document.getElementById('share-closebtn').addEventListener("click", closeShare);
       }, 1000);
