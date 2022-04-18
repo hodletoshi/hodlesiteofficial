@@ -255,7 +255,7 @@ function getShareCopy(hodle_num) {
     }
   }
 
-  return returnStr;
+  return returnStr + "https://hodle.io";
 }
 
 function getShareCopyDisplay() {
