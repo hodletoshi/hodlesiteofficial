@@ -764,6 +764,7 @@ export default class extends AbstractView {
                   navigator.clipboard.writeText(text);
                 } catch (err) {
                   console.log("ERROR CODE 1 COPYING TO CLIPBOARD");
+                  console.log(err);
                 }
               } else {
                 console.log("ERROR CODE 2 COPYING TO CLIPBOARD");
