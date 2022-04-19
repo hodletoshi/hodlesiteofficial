@@ -39,7 +39,7 @@ export default class extends AbstractView {
           </div>
           <div class="content-div">
             <h1 style="margin-bottom: 10px;">How many <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> NFTs will be available? How much will they cost? When does the mint open?</h1>
-            <h2 class="blurred">10,000 <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> NFTs will be available for minting. The WordList (WL) mint price is <span class="unselectable">REDACTED</span>, and the general mint price is <span class="unselectable">REDACTED</span>. Minting will take place on April <span class="unselectable">??</span>, with the WordList (WL) mint opening 24 hours prior.
+            <h2 class="blurred">8,888 <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> NFTs will be available for minting. The WordList (WL) mint price is <span class="unselectable">REDACTED</span>, and the general mint price is <span class="unselectable">REDACTED</span>. Minting will take place on April <span class="unselectable">??</span>, with the WordList (WL) mint opening 24 hours prior.
             <br>
             <br>
             All hidden details are being revealed at 5K <a target="_blank" href="https://discord.com/invite/PZbZ4yeTrt">Discord</a> members. You don't want to miss it!
@@ -87,15 +87,15 @@ export default class extends AbstractView {
           <div class="content-div">
             <h1>How many mints will be available?</h1>
             <h2>
-              10,000 <b>HODLE Board</b> NFTs will be available for minting.
+              8,888 <b>HODLE Board</b> NFTs will be available for minting.
             </h2>
           </div>
           <div class="content-div">
             <h1>What will it cost to mint a HODLE Board?</h1>
             <h2 class="blurred">
-              <span class="unselectable">0.??</span> ETH + Gas for WordListed players.
+              0.09 ETH + Gas for WordListed players.
               <br>
-              <span class="unselectable">0.??</span> ETH + Gas for the general public.
+              0.11 ETH + Gas for the general public.
             </h2>
           </div>
           <div class="content-div">
@@ -111,6 +111,12 @@ export default class extends AbstractView {
             <br>
             <br>
             To join the Public WordList, interact with other HODLers in the <a target="_blank" href="https://discord.com/invite/PZbZ4yeTrt">Discord</a>! Admins give out WordList spots daily to engaged HODLers.
+            </h2>
+          </div>
+          <div class="content-div">
+            <h1>Wen Roadmap?</h1>
+            <h2>
+            We are creating an art piece for the Roadmap V1 and it will be hosted on the website very very soon. WGMI.
             </h2>
           </div>
           <div class="content-div">

@@ -22,7 +22,9 @@ export default class extends AbstractView {
           Mint <b>Details</b>
         </h1>
         <h2 class="title-subheader blurred" style="font-weight: normal; width: 90vw; margin: auto; margin-bottom: 40px;">
-          Minting will take place on the official <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> website at <span class="unselectable">REDACTED EST</span> on <span class="unselectable">REDACTED</span>.
+          Minting will take place on the official <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> website at 0:00 EST on May 8.
+          <br>
+          The WordList mint will take place on the <span style="font-family: 'HODLE'; font-size: 25px;">Hodle</span> website 24 hours prior (0:00 EST on May 7).
           <br>
           <br>
           Minting will <b>NOT</b> open early.
