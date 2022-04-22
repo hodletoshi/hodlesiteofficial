@@ -12,6 +12,7 @@ export default class extends AbstractView {
         document.getElementById("help-button").remove();
       }
 
+      document.documentElement.style.backgroundImage = 'none';
       document.body.style.backgroundColor = "#161616";
 
       return `

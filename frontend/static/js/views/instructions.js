@@ -10,6 +10,7 @@ export default class extends AbstractView {
       document.querySelector('#hodle-footer').style.opacity = "100%";
       document.querySelector('#hodle-footer').style.height = "60px";
 
+      document.documentElement.style.backgroundImage = 'none';
       document.body.style.backgroundColor = "#161616";
 
       if (document.contains(document.getElementById("settings-button"))) {

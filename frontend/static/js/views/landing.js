@@ -15,8 +15,10 @@ export default class extends AbstractView {
       document.querySelector('#hodle-footer').style.opacity = "100%";
       document.querySelector('#hodle-footer').style.height = "60px";
 
-      var x = 0;
+      document.documentElement.style.backgroundImage = 'none';
 
+      // Tile on bottom modal
+      var x = 0;
       var tileImg = [];
       tileImg[0] = "static/img/h-tile.png";
       tileImg[1] = "static/img/o-tile-2.png";
@@ -24,17 +26,50 @@ export default class extends AbstractView {
       tileImg[3] = "static/img/l-tile-2.png";
       tileImg[4] = "static/img/e-tile-2.png";
 
+
+      // top home image
+      var y = 0;
+      var homeBg = [];
+      homeBg[0] = "static/img/home_bg_15.png";
+      homeBg[1] = "static/img/home_bg_13.png";
+      homeBg[2] = "static/img/home_bg_14.png";
+      homeBg[3] = "static/img/home_bg_16.png";
+      homeBg[4] = "static/img/home_bg_17.png";
+      homeBg[5] = "static/img/home_bg_12.png";
+      homeBg[6] = "static/img/home_bg_6.png";
+      homeBg[7] = "static/img/home_bg_7.png";
+      homeBg[8] = "static/img/home_bg_8.png";
+      homeBg[9] = "static/img/home_bg_9.png";
+      homeBg[10] = "static/img/home_bg_10.png";
+      homeBg[11] = "static/img/home_bg_11.png";
+      homeBg[12] = "static/img/home_bg_12.png";
+      homeBg[13] = "static/img/home_bg_1.png";
+      homeBg[14] = "static/img/home_bg_2.png";
+      homeBg[15] = "static/img/home_bg_3.png";
+      homeBg[16] = "static/img/home_bg_4.png";
+
       if (seen == 1) {
         // Only set the interval on the first time the page starts
 
         setInterval(function() {
           const tileimg = document.getElementById("what-is-hodle-tile");
-          console.log("CALLED");
 
           x = (x === 4) ? 0 : x + 1;
-          tileimg.src = tileImg[x];
+          try {
+            tileimg.src = tileImg[x];
+          } catch (err) {}
         }, 1000);
+
+        setInterval(function() {
+          const homeimg = document.getElementById("top-home-bg");
+
+          y = (y === 10) ? 0 : y + 1;
+          try {
+            homeimg.style.backgroundImage = `url('${homeBg[y]}')`;
+          } catch (err) {}
+        }, 2000);
       }
+
 
       if (document.contains(document.getElementById("settings-button"))) {
         document.getElementById("settings-button").remove();
@@ -45,11 +80,11 @@ export default class extends AbstractView {
           <div class="what-is-hodle-bottom">
             <img class="what-is-hodle-tile" id="what-is-hodle-tile" src="static/img/h-tile.png" width="120px" height="120px">
             <h1 class="what-is-hodle-subtitle">
-              WHAT IS
+              TRY THE
               <br>
-              <span class="what-is-hodle-title">HODLE?</span>
+              <span class="what-is-hodle-title">DEMO!&nbsp;&nbsp;</span>
             </h1>
-            <button class="what-is-hodle-button" onclick="window.open('/about', '_self')">FIND OUT &nbsp;➜</button>
+            <button class="what-is-hodle-button" onclick="window.open('/demo', '_self')">PLAY NOW &nbsp;➜</button>
           </div>
           <div class="discord-bottom">
             <h1 class="discord-subtitle">
@@ -59,27 +94,31 @@ export default class extends AbstractView {
             </h1>
             <button class="discord-button" onclick="window.open('https://discord.com/invite/PZbZ4yeTrt')">➜</button>
           </div>
-          <div class="landing-teaser" id="teaser" style="height: 100vh;">
-            <img class="landing-teaser-img" id="teaser-img" src="static/img/teaser1.png"></img>
+          <div id="top-home-bg" class="tophome-bg">
+            <img src="static/img/hodle_logo_big.png" class="tophome-logoimg"></img>
+            <h1 class="tophome-text">Guess 🟨, Solve 🟩, $ETH 🤑.</h1>
+            <button onclick="window.open('/about', '_self')" class="tophome-btn">Learn More</button>
           </div>
-          <!--
-          <div class="landing-about">
-            <div class="landing-about-title">
-                <span class="landing-about-title-text">What is&nbsp;&nbsp;</span>
-                <img class="landing-about-logo"></img>
-                <span class="landing-about-title-text">&nbsp;?</span>
+          <div class="leaderboard-container-landing">
+            <div class="leaderboard-div-landing">
+              <h1 class="leaderboard-div-toptitle">Daily Leaderboard 🥇</h1>
+              <div class="leaderboard-div-inner-div">
+              <h1 class="leaderboard-div-h1">Available after mint.</h1>
+              </div>
             </div>
-            <p style="padding-left: 35px; padding-right: 35px;">
-            <b>HODLE</b> is an upcoming P2E NFT word game where you can win daily prizes of both cash and NFTs.
-            <br><br>
-            Only <b>HODLE Board</b> owners can play <b>HODLE</b>.
-            <br><br>
-            You have five tries to guess a five-letter word related to cryptocurrencies and NFTs. You receive feedback on each guess in the shape of different coloured tiles.
-            <br><br>
-            Join our frens in the <span style="text-decoration: underline; cursor: pointer;" onclick="window.open('https://discord.com/invite/PZbZ4yeTrt')">Discord</span> community and follow us on <span style="text-decoration: underline; cursor: pointer;" onclick="window.open('https://twitter.com/hodlenftgame')">Twitter</span> for the latest updates!
-            </p>
+            <div class="leaderboard-div-landing">
+              <h1 class="leaderboard-div-toptitle">Longest Active Streak 🔥</h1>
+              <div class="leaderboard-div-inner-div">
+              <h1 class="leaderboard-div-h1">Available after mint.</h1>
+              </div>
+            </div>
+            <div class="leaderboard-div-landing">
+              <h1 class="leaderboard-div-toptitle">All-Time Leaderboard 🏆</h1>
+              <div class="leaderboard-div-inner-div">
+              <h1 class="leaderboard-div-h1">Available after mint.</h1>
+              </div>
+            </div>
           </div>
-          -->
       `;
     }
 }
