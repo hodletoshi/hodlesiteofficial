@@ -31,7 +31,7 @@ export default class extends AbstractView {
           <span style="font-size: 17px"><span style="font-family:'HODLE'; font-size: 25px;">Hodle</span> is wholly owned and operated by Nifty Games Ltd.</span>
         </h2>
         <div class="content-div">
-          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Hodletoshi Yolomoto</h1>
+          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Hodletoshi Yolomoto (Zach)</h1>
           <h2>Lead Dev, Artist, and DJ</h2>
           <img src="/static/img/team_pfps/hodletoshi.png" width="200px" style="border-radius: 10px;"></img>
           <br>
@@ -62,7 +62,7 @@ export default class extends AbstractView {
           </h2>
         </div>
         <div class="content-div">
-          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Enigma</h1>
+          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Enigma (Rick)</h1>
           <h2>Community Manager</h2>
           <img src="/static/img/team_pfps/enigma.png" width="200px" style="border-radius: 10px;"></img>
           <br>
@@ -77,7 +77,7 @@ export default class extends AbstractView {
           </h2>
         </div>
         <div class="content-div">
-          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Diesel</h1>
+          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Diesel (James)</h1>
           <h2>Community Manager</h2>
           <img src="/static/img/team_pfps/diesel.png" width="200px" style="border-radius: 10px;"></img>
           <br>
@@ -128,7 +128,7 @@ export default class extends AbstractView {
           </h2>
         </div>
         <div class="content-div">
-          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Robin</h1>
+          <h1 style="font-family: 'HODLE'; font-size: 25px; letter-spacing: 1px;">Lord Robin (Robin)</h1>
           <h2>Moderator</h2>
           <img src="/static/img/team_pfps/robin.png" width="200px" style="border-radius: 10px;"></img>
           <br>
