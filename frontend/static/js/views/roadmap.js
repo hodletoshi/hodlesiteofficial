@@ -109,8 +109,6 @@ export default class extends AbstractView {
             🤓 Free mint of 'Meet the Hodlers' PFP NFTs
             <br>
             🪙 Tokenization of <span style="font-family: 'HODLE'; font-size: 22px;">Hodle</span> rewards + <span style="font-family: 'HODLE'; font-size: 22px;">$HODL</span> staking
-            <br>
-            🤐 AN AWESOME PHYSICAL UTILITY
           </h2>
         </div>
         <div class="content-div content-div-bottom">
