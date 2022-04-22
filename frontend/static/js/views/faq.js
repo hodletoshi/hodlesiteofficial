@@ -29,7 +29,7 @@ export default class extends AbstractView {
           </div>
           <div class="content-div">
             <h1>Who is behind <span style="font-family: 'HODLE'; font-size: 22px">Hodle</span>?</h1>
-            <h2>The <span style="font-family: 'HODLE'; font-size: 22px;">Hodle</span> Team is made up of a group of experienced developers, artists, NFT degens, and seasoned crypto investors united by our passion for Web3, word games, and puzzles. More information on the team will be available on our website soon.
+            <h2>The <span style="font-family: 'HODLE'; font-size: 22px;">Hodle</span> Team is made up of a group of experienced developers, artists, NFT degens, and seasoned crypto investors united by our passion for Web3, word games, and puzzles. More information on the team is available <a href="/team">here</a>!
             <br>
             <br>
             <span style="font-family: 'HODLE'; font-size: 22px;">Hodle</span> is NOT affiliated with any other word game, company, NFT project, or cryptocurrency. Please be wary of impersonators!</h2>

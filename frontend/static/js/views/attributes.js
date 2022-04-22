@@ -1,7 +1,5 @@
 import AbstractView from "./AbstractView.js";
 
-var teaserSeen = 0;
-
 export default class extends AbstractView {
     constructor(params) {
         super(params);
@@ -9,8 +7,6 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
-      teaserSeen += 1;
-
       document.querySelector('#hodle-footer').style.opacity = "100%";
       document.querySelector('#hodle-footer').style.height = "60px";
 
@@ -20,37 +16,6 @@ export default class extends AbstractView {
       if (document.contains(document.getElementById("settings-button"))) {
         document.getElementById("settings-button").remove();
         document.getElementById("help-button").remove();
-      }
-
-      var x = 0;
-      var teaser = [];
-      teaser[0] = "url('static/img/teaser1.png')";
-      teaser[1] = "url('static/img/teaser2.png')";
-      teaser[2] = "url('static/img/teaser3.png')";
-      teaser[3] = "url('static/img/teaser4.png')";
-      teaser[4] = "url('static/img/teaser5.png')";
-      teaser[5] = "url('static/img/teaser6.png')";
-      teaser[6] = "url('static/img/teaser7.png')";
-      teaser[7] = "url('static/img/teaser8.png')";
-      teaser[8] = "url('static/img/teaser9.png')";
-      teaser[9] = "url('static/img/teaser10.png')";
-      teaser[10] = "url('static/img/teaser11.png')";
-      teaser[11] = "url('static/img/teaser12.png')";
-      teaser[12] = "url('static/img/teaser13.png')";
-      teaser[13] = "url('static/img/teaser14.png')";
-
-      if (teaserSeen == 1) {
-        // Only set the interval on the first time the page starts
-
-        setInterval(function() {
-          const teaserimg = document.getElementById("teaser-img-square");
-
-          x = (x === 13) ? 0 : x + 1;
-          try {
-            teaserimg.style.backgroundImage = teaser[x];
-          } catch (err) {
-          }
-        }, 2000);
       }
 
       return `
@@ -66,7 +31,7 @@ export default class extends AbstractView {
             Below are some examples of what your <span style="font-family: 'HODLE'; font-size: 25px;">Hodle Board</span> could look like!
           </h2>
           <div style="width: 300px; height: 300px; margin: auto; margin-top: -20px; margin-bottom: 50px;">
-            <div id="teaser-img-square" style="transition: 1s; width: 300px; height: 300px; background-size: contain; background-image: url('/static/img/teaser1.png')""></div>
+            <div id="teaser-img-square" style="transition: 1s; width: 300px; height: 300px; background-size: contain; background-image: url('/static/img/attributes-teaser.gif')""></div>
           </div>
           <div class="content-div">
             <h1 class="top-title">Themes</h1>
