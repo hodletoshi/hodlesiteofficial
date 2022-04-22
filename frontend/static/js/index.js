@@ -6,6 +6,7 @@ import Details from "./views/details.js";
 import HowToPlay from "./views/instructions.js";
 import Faq from "./views/faq.js";
 import Roadmap from "./views/roadmap.js";
+import Team from "./views/team.js";
 import Rewards from "./views/rewards.js";
 import Attributes from "./views/attributes.js";
 import About from "./views/about.js"
@@ -34,6 +35,7 @@ const router = async () => {
         { path: "/play", view: Play },
         { path: "/about", view: About },
         { path: "/roadmap", view: Roadmap },
+        { path: "/team", view: Team },
         { path: "/mint", view: Mint },
         { path: "/details", view: Details },
         { path: "/instructions", view: HowToPlay },
