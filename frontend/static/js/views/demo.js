@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "asics";
+let word = "sweet";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -24,14 +24,15 @@ const theme_config = {
   'Pastel Gold': ["#fde67b", "#ceaa44", "white", "#818384", "white", "pastel_gold_bg.png"],
   'Ethereum': ["#8991b3", "#95a1d1", "white", "#d5dce0", "black"],
   'Bitcoin': ["#f79300", "#fca628", "white", "#818384", "white"],
-  'Hint': ["#ffcb23", "#ffdd6e", "white", "#818384", "white"],
+  //'Hint': ["#ffcb23", "#ffdd6e", "white", "#818384", "white"],
   'Key Lime Meringue': ["#ddeebf", "#feffc9", "#bfd39c", "#818384", "white"],
   'Platinum': ["#cbcac8", "#b0b1b1", "white", "#818384", "white"],
   'Quartz': ["#f2dcde", "#e3cacc", "white", "#818384", "white"],
-  'Wrong': ["#595959", "#717171", "white", "#818384", "white"],
+  //'Wrong': ["#595959", "#717171", "white", "#818384", "white"],
   'Clear Sky': ["#dff3fc", "#f8fdff", "#adcddb", "#818384", "white"],
   'Correct': ["#6dcf63", "#77e26c", "white", "#d5dce0", "black"],
   'Cream': ["#eeead1", "#ddd6ba", "white", "#818384", "white"],
+    //'Cookie': ["#a7723f", "#dcb66e", "white", "#d5dce0", "black"],
   'Superlative Purple': ["#7c7ffc", "#d6dcff", "#847bfa", "#d5dce0", "black", "super_purple_bg.png"],
   'Superlative Yellow': ["#fbec83", "#a4a3e9", "white", "#818384", "white", "super_yellow_bg.png"],
   'Superlative Pink': ["#ffd7ee", "#ee7fbf", "white", "#818384", "white", "super_pink_bg.png"],
@@ -70,7 +71,8 @@ const mode_config = {
   'Pastel': ["#717171", "#de7a7a", "#6fd55a"],
   'High Contrast': ["#464646", "#f3763b", "#88bff9"],
   'Superlative': ["#fd8fce", "#f4dd5a", "#60e9b3"],
-  'Alien': ["#507577", "#fc8286", "#51ffac"]
+  'Alien': ["#507577", "#fc8286", "#51ffac"],
+  'Sweets': ["#592b23", "#ffbe1e", "#19acef"]
 };
 
 
@@ -385,6 +387,11 @@ function handleSubmitWord() {
 
     } else if (tileColor == mode_config[mode][1]) {
       letterEl.classList.toggle("hint");
+
+      if (keyEl.classList.contains("incorrect")) {
+        keyEl.classList.toggle("incorrect");
+      }
+
       if (!keyEl.classList.contains("hint") && !keyEl.classList.contains("correct")) {
         keyEl.classList.toggle("hint");
         setTimeout(() => {
@@ -394,6 +401,14 @@ function handleSubmitWord() {
 
     } else if (tileColor == mode_config[mode][2]) {
       letterEl.classList.toggle("correct");
+
+      if (keyEl.classList.contains("incorrect")) {
+        keyEl.classList.toggle("incorrect");
+      }
+      if (keyEl.classList.contains("hint")) {
+        keyEl.classList.toggle("hint");
+      }
+
       if (!keyEl.classList.contains("correct")) {
         keyEl.classList.toggle("correct");
         setTimeout(() => {
@@ -855,6 +870,7 @@ export default class extends AbstractView {
             <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
             <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
             <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
+            <!-- <button style="background-color: #a7723f" value="Cookie"><div class="selected"></div></button> -->
             <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>
             <button style="background-color: #F79300" value="Bitcoin"><div class="selected"></div></button>
             <button style="background-color: #FAE4CC" value="Pastel Acorn"><div class="selected"></div></button>
@@ -905,6 +921,7 @@ export default class extends AbstractView {
             <button class="special" style="background: linear-gradient(45deg, #ff6c78 36%, #b9ff6d 36% 64%, #ffb76f 64% 100%)" value="mfers"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #fd8fce 36%, #60e9b3 36% 64%, #f4dd5a 64% 100%)" value="Superlative"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #507577 36%, #60e9b3 36% 64%, #fc8286 64% 100%)" value="Alien"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(45deg, #592b23 36%, #19acef 36% 64%, #ffbe1e 64% 100%)" value="Sweets"><div class="selected"></div></button>
           </div>
         </div>
       </div>
