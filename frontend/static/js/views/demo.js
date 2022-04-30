@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "sweet";
+let word = "floor";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -32,7 +32,7 @@ const theme_config = {
   'Clear Sky': ["#dff3fc", "#f8fdff", "#adcddb", "#818384", "white"],
   'Correct': ["#6dcf63", "#77e26c", "white", "#d5dce0", "black"],
   'Cream': ["#eeead1", "#ddd6ba", "white", "#818384", "white"],
-    //'Cookie': ["#a7723f", "#dcb66e", "white", "#d5dce0", "black"],
+  'Cookie': ["#a7723f", "#dcb66e", "white", "#d5dce0", "black"],
   'Superlative Purple': ["#7c7ffc", "#d6dcff", "#847bfa", "#d5dce0", "black", "super_purple_bg.png"],
   'Superlative Yellow': ["#fbec83", "#a4a3e9", "white", "#818384", "white", "super_yellow_bg.png"],
   'Superlative Pink': ["#ffd7ee", "#ee7fbf", "white", "#818384", "white", "super_pink_bg.png"],
@@ -870,7 +870,7 @@ export default class extends AbstractView {
             <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
             <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
             <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
-            <!-- <button style="background-color: #a7723f" value="Cookie"><div class="selected"></div></button> -->
+            <button style="background-color: #a7723f" value="Cookie"><div class="selected"></div></button>
             <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>
             <button style="background-color: #F79300" value="Bitcoin"><div class="selected"></div></button>
             <button style="background-color: #FAE4CC" value="Pastel Acorn"><div class="selected"></div></button>
