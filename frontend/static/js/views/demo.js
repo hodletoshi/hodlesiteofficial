@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "floor";
+let word = "price";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -33,6 +33,7 @@ const theme_config = {
   'Correct': ["#6dcf63", "#77e26c", "white", "#d5dce0", "black"],
   'Cream': ["#eeead1", "#ddd6ba", "white", "#818384", "white"],
   'Cookie': ["#a7723f", "#dcb66e", "white", "#d5dce0", "black"],
+  'Autumn': ["#e57400", "#eba258", "white", "#818384", "white"],
   'Superlative Purple': ["#7c7ffc", "#d6dcff", "#847bfa", "#d5dce0", "black", "super_purple_bg.png"],
   'Superlative Yellow': ["#fbec83", "#a4a3e9", "white", "#818384", "white", "super_yellow_bg.png"],
   'Superlative Pink': ["#ffd7ee", "#ee7fbf", "white", "#818384", "white", "super_pink_bg.png"],
@@ -59,7 +60,7 @@ const theme_config = {
   'Paper Hand Punk': ["#8c4f4c", "#a68685", "white", "#d5dce0", "black"],
   'HODLR Punk': ["#638497", "#cafdfc", "#638497", "#d5dce0", "black"],
   'Extraterrestrial': ["#afc4af", "#ffff71", "#507577", "#818384", "white"],
-  'Interplanetary': ["#b164ff", "#b3faff", "#507577", "#d5dce0", "black"]
+  'Interplanetary': ["#b164ff", "#b3faff", "#507577", "#d5dce0", "black"],
 };
 
 const mode_config = {
@@ -72,7 +73,8 @@ const mode_config = {
   'High Contrast': ["#464646", "#f3763b", "#88bff9"],
   'Superlative': ["#fd8fce", "#f4dd5a", "#60e9b3"],
   'Alien': ["#507577", "#fc8286", "#51ffac"],
-  'Sweets': ["#592b23", "#ffbe1e", "#19acef"]
+  'Sweets': ["#592b23", "#ffbe1e", "#19acef"],
+  'Harvest': ["#975916", "#ce4519", "#f8ac3e"]
 };
 
 
@@ -871,6 +873,7 @@ export default class extends AbstractView {
             <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
             <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
             <button style="background-color: #a7723f" value="Cookie"><div class="selected"></div></button>
+            <button style="background-color: #e57400" value="Autumn"><div class="selected"></div></button>
             <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>
             <button style="background-color: #F79300" value="Bitcoin"><div class="selected"></div></button>
             <button style="background-color: #FAE4CC" value="Pastel Acorn"><div class="selected"></div></button>
@@ -922,6 +925,7 @@ export default class extends AbstractView {
             <button class="special" style="background: linear-gradient(45deg, #fd8fce 36%, #60e9b3 36% 64%, #f4dd5a 64% 100%)" value="Superlative"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #507577 36%, #60e9b3 36% 64%, #fc8286 64% 100%)" value="Alien"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #592b23 36%, #19acef 36% 64%, #ffbe1e 64% 100%)" value="Sweets"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(45deg, #975916 36%, #f8ac3e 36% 64%, #ce4519 64% 100%)" value="Harvest"><div class="selected"></div></button>
           </div>
         </div>
       </div>
