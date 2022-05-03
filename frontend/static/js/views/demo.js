@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "price";
+let word = "other";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -74,7 +74,8 @@ const mode_config = {
   'Superlative': ["#fd8fce", "#f4dd5a", "#60e9b3"],
   'Alien': ["#507577", "#fc8286", "#51ffac"],
   'Sweets': ["#592b23", "#ffbe1e", "#19acef"],
-  'Harvest': ["#975916", "#ce4519", "#f8ac3e"]
+  'Harvest': ["#975916", "#ce4519", "#f8ac3e"],
+  '1997': ['#b1296c', '#e4a936', '#2c7e9e']
 };
 
 
@@ -926,6 +927,7 @@ export default class extends AbstractView {
             <button class="special" style="background: linear-gradient(45deg, #507577 36%, #60e9b3 36% 64%, #fc8286 64% 100%)" value="Alien"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #592b23 36%, #19acef 36% 64%, #ffbe1e 64% 100%)" value="Sweets"><div class="selected"></div></button>
             <button class="special" style="background: linear-gradient(45deg, #975916 36%, #f8ac3e 36% 64%, #ce4519 64% 100%)" value="Harvest"><div class="selected"></div></button>
+            <button class="special" style="background: linear-gradient(45deg, #b1296c 36%, #2c7e9e 36% 64%, #e4a936 64% 100%)" value="1997"><div class="selected"></div></button>
           </div>
         </div>
       </div>

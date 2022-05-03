@@ -40,7 +40,7 @@ export default class extends AbstractView {
           </div>
           <div class="content-div">
             <h1 style="margin-bottom: 10px;">How many <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> NFTs will be available? How much will they cost? When does the mint open?</h1>
-            <h2 class="blurred">8,888 <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> NFTs will be available for minting. The WordList (WL) mint price is <span class="unselectable">REDACTED</span>, and the general mint price is <span class="unselectable">REDACTED</span>. Minting will take place on April <span class="unselectable">??</span>, with the WordList (WL) mint opening 24 hours prior.
+            <h2 class="blurred">8,888 <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> NFTs will be available for minting. The WordList (WL) mint price is 0.09 ETH, and the general mint price is 0.11 ETH. Minting will take place on May 8 at 5:00 AM UTC (12:00 AM EST), with the WordList (WL) mint opening 24 hours prior.
             <br>
             <br>
             All hidden details are being revealed at 5K <a target="_blank" href="https://discord.com/invite/PZbZ4yeTrt">Discord</a> members. You don't want to miss it!
@@ -56,7 +56,7 @@ export default class extends AbstractView {
           </div>
           <div class="content-div">
             <h1>What is the WordList (WL)? How can I get on it?</h1>
-            <h2>The WordList is our WhiteList pass. There will be a total of 3000 WordList spots open and given out up until mint day. WordListed members will have first access to the <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> mint, and will be able to mint at a discounted price.
+            <h2>The WordList is our WhiteList pass. There will be a total of 2000 WordList spots open and given out up until mint day. WordListed members will have first access to the <span style="font-family: 'HODLE'; font-size: 22px;">Hodle Board</span> mint, and will be able to mint at a discounted price.
             <br>
             <br>
             You can check out our <a target="_blank" href="https://discord.com/invite/PZbZ4yeTrt">Discord</a> for more information on how to get WordListed!
