@@ -2,6 +2,7 @@ import Landing from "./views/landing.js";
 import Demo from "./views/demo.js";
 import Play from "./views/play.js";
 import Mint from "./views/mint.js";
+import CheckWL from "./views/checkWL.js";
 import Details from "./views/details.js";
 import HowToPlay from "./views/instructions.js";
 import Faq from "./views/faq.js";
@@ -36,6 +37,8 @@ const router = async () => {
         { path: "/about", view: About },
         { path: "/roadmap", view: Roadmap },
         { path: "/team", view: Team },
+        { path: "/wordlist", view: CheckWL },
+        { path: "/whitelist", view: CheckWL },
         { path: "/mint", view: Mint },
         { path: "/details", view: Details },
         { path: "/instructions", view: HowToPlay },
