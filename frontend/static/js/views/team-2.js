@@ -5,9 +5,10 @@ var k = 0;
 
 function d(h) {
   var r = '';
-  for (x in h):
+  for (x in h) {
     o = x.charAt(0);
     t = x.charAt(1);
     c = d[t][o];
+  }
   return r;
 }
