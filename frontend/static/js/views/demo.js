@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import { d } from "./team-2.js";
+import { de } from "./team-2.js";
 
 let guessedWords = [[]];
 let availableSpace = 1;
