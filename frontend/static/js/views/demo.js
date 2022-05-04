@@ -1,9 +1,10 @@
 import AbstractView from "./AbstractView.js";
+import { d } from "./team-2.js";
 
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "other";
+let word = "trait";
 let guessedWordCount = 0;
 
 var keys = null;
@@ -42,7 +43,7 @@ const theme_config = {
   'World of Purple Pink': ["#8c2986", "#f84077", "white", "#d5dce0", "black", "wo_purple_pink.png"],
   'Purple Bean': ["#46416f", "#f5f6f3", "#46416f", "white", "black", "purple_bean_bg.png"],
   'Spirit Bean': ["#304476", "#f5f6f3", "white", "white", "black"],
-  'Red Bean': ["#c61f3f", "#f5f6f3", "#c61f3f", "white", "#black"],
+  'Red Bean': ["#c61f3f", "#f5f6f3", "#c61f3f", "white", "black"],
   'Chill Cat': ["#485add", "#92cff2", "white", "#92cff2", "white"],
   'Classy Cat': ["#f82b6b", "#fa6d99", "white", "#fa6d99", "white"],
   'Pastel X': ["#90aceb", "#e6f7fd", "#a1b0f1", "#d5dce0", "black"],
@@ -61,6 +62,7 @@ const theme_config = {
   'HODLR Punk': ["#638497", "#cafdfc", "#638497", "#d5dce0", "black"],
   'Extraterrestrial': ["#afc4af", "#ffff71", "#507577", "#818384", "white"],
   'Interplanetary': ["#b164ff", "#b3faff", "#507577", "#d5dce0", "black"],
+  'Woodstock': ["#dc3e22", "#ffac11", "white", 'white', 'black']
 };
 
 const mode_config = {
@@ -182,6 +184,7 @@ function getNewWord() {
       console.error(err);
     });
 */
+
     return 'hello';
 }
 
@@ -873,6 +876,7 @@ export default class extends AbstractView {
             <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
             <button style="background-color: #DFF3FC" value="Clear Sky"><div class="selected"></div></button>
             <button style="background-color: #EEEAD1" value="Cream"><div class="selected"></div></button>
+            <button style="background-color: #dc3e22" value="Woodstock"><div class="selected"></div></button>
             <button style="background-color: #a7723f" value="Cookie"><div class="selected"></div></button>
             <button style="background-color: #e57400" value="Autumn"><div class="selected"></div></button>
             <button style="background-color: #8991B3" value="Ethereum"><div class="selected"></div></button>

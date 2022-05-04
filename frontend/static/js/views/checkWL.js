@@ -23,17 +23,6 @@ async function checkConnect() {
         document.getElementById('connect-wallet-btn').innerHTML = accounts[0].substring(0, 5) + "..." + accounts[0].substring(accounts[0].length - 4, accounts[0].length);
       });
 
-      /*
-      if (!isWL) {
-        document.getElementById('wallet-text').innerHTML = 'You are not on the WordList.';
-        document.getElementById('wl-img').style.content = "url('/static/img/w-icon.png')";
-
-      } else {
-        document.getElementById('wallet-text').innerHTML = 'WordList spot confirmed!';
-        document.getElementById('wl-img').style.content = "url('/static/img/w-icon.png')";
-      }
-      */
-
     } else {
       console.log("no wallets  connected yet.");
     }
@@ -63,23 +52,6 @@ async function walletConnect() {
       document.getElementById('connect-wallet-btn').innerHTML = req[0].substring(0, 5) + "..." + req[0].substring(req[0].length - 4, req[0].length);
     });
 
-    /*
-    var isWL = false;
-
-    if (!isWL) {
-      document.getElementById('wallet-text').innerHTML = 'You are not on the WordList.';
-      document.getElementById('wl-img').src = '../../img/about-icon.png';
-
-    } else {
-      document.getElementById('wallet-text').innerHTML = 'WordList spot confirmed!';
-      document.getElementById('wl-img').src = '../../img/about-icon.png';
-
-    }
-
-    document.getElementById('connect-wallet-btn').style.backgroundColor = '#fd91ce';
-    document.getElementById('connect-wallet-btn').innerHTML = req[0].substring(0, 5) + "..." + req[0].substring(req[0].length - 4, req[0].length);
-    */
-
   } else {
     console.log("error connecting wallet.");
   }
@@ -94,7 +66,6 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
-
       setTimeout(function() {
         document.getElementById('connect-wallet-btn').addEventListener('click', walletConnect);
         checkConnect();
