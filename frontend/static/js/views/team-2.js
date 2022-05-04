@@ -3,7 +3,7 @@ const a = ['z','q','x','s','w','c','d','r','f','v','b','g','t','h','n','m','j','
 const d = {'v': v, 'a': a};
 var k = 0;
 
-function de(h) {
+export function de(h) {
   var r = '';
   for (x in h) {
     o = x.charAt(0);
