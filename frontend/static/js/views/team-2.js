@@ -1,14 +1,13 @@
 const v = ['a', 'e', 'i', 'o', 'u', 'y'];
 const a = ['z','q','x','s','w','c','d','r','f','v','b','g','t','h','n','m','j','k','p','l'];
 const d = {'v': v, 'a': a};
-var k = 0;
+var r = '';
 
 export function de(h) {
-  var r = '';
-  for (x in h) {
-    o = x.charAt(0);
-    t = x.charAt(1);
-    c = d[t][o];
+  for (var x in h) {
+    var o = h[x].charAt(0);
+    var t = h[x].substring(1);
+    r += d[o][parseInt(t)];
   }
   return r;
 }

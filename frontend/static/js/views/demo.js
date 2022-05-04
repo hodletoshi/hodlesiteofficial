@@ -4,8 +4,9 @@ import { de } from "./team-2.js";
 let guessedWords = [[]];
 let availableSpace = 1;
 
-let word = "trait";
+let word = ""; //"trait";
 let guessedWordCount = 0;
+var gameOver = false;
 
 var keys = null;
 
@@ -31,7 +32,7 @@ const theme_config = {
   'Quartz': ["#f2dcde", "#e3cacc", "white", "#818384", "white"],
   //'Wrong': ["#595959", "#717171", "white", "#818384", "white"],
   'Clear Sky': ["#dff3fc", "#f8fdff", "#adcddb", "#818384", "white"],
-  'Correct': ["#6dcf63", "#77e26c", "white", "#d5dce0", "black"],
+  //'Correct': ["#6dcf63", "#77e26c", "white", "#d5dce0", "black"],
   'Cream': ["#eeead1", "#ddd6ba", "white", "#818384", "white"],
   'Cookie': ["#a7723f", "#dcb66e", "white", "#d5dce0", "black"],
   'Autumn': ["#e57400", "#eba258", "white", "#818384", "white"],
@@ -162,30 +163,11 @@ function updateTheme() {
 }
 
 
-function getNewWord() {
-  /*
-  fetch(
-    `https://wordsapiv1.p.rapidapi.com/words/?random=true&lettersMin=5&lettersMax=5`,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-        "x-rapidapi-key": "61c5e3986dmsh20c1bee95c2230dp18d1efjsn4668bbcfc1b3",
-      },
-    }
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .then((res) => {
-      word = res.word;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-*/
-
-    return 'hello';
+async function getNewWord() {
+  $.post("https://us-central1-checkwordlist.cloudfunctions.net/hodleMeDemo", {}, await function(result) {
+    const res = result.hd;
+    word = de(res);
+  });
 }
 
 function getCurrentWordArr() {
@@ -365,8 +347,6 @@ function handleSubmitWord() {
 
   const currentWord = currentWordArr.join("");
 
-  console.log(currentWord);
-
   const firstLetterId = guessedWordCount * 5 + 1;
   const interval = 300;
 
@@ -429,8 +409,6 @@ function handleSubmitWord() {
     }
 
     setTimeout(() => {
-      console.log("GETTING COLOR");
-
       letterEl.classList.add("flipin");
       setTimeout(function() { letterEl.style = `background-color:${tileColor};border-color:${tileColor}` }, 250);
 
@@ -447,6 +425,9 @@ function handleSubmitWord() {
       setTimeout(function() { letterEl.classList.toggle("bounce"); }, 1400 + (100 * index));
     });
 
+    document.getElementById('keyboard-container').style.pointerEvents = "none";
+    gameOver = true;
+
     setTimeout(function() {
       openShare("Amazing!");
     }, 3000);
@@ -459,49 +440,6 @@ function handleSubmitWord() {
   }
 
   guessedWords.push([]);
-
-  /*
-  fetch(`https://wordsapiv1.p.rapidapi.com/words/${currentWord}`, {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-      "x-rapidapi-key": "61c5e3986dmsh20c1bee95c2230dp18d1efjsn4668bbcfc1b3",
-    },
-  })
-    .then((res) => {
-      if (!res.ok) {
-        throw Error();
-      }
-
-      const firstLetterId = guessedWordCount * 5 + 1;
-      const interval = 200;
-      currentWordArr.forEach((letter, index) => {
-        setTimeout(() => {
-          const tileColor = getTileColor(letter, index);
-
-          const letterId = firstLetterId + index;
-          const letterEl = document.getElementById(letterId);
-          letterEl.classList.add("animate__flipInX");
-          letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
-        }, interval * index);
-      });
-
-      guessedWordCount += 1;
-
-      if (currentWord === word) {
-        window.alert("Congratulations!");
-      }
-
-      if (guessedWords.length === 6) {
-        window.alert(`Sorry, you have no more guesses! The word is ${word}.`);
-      }
-
-      guessedWords.push([]);
-    })
-    .catch(() => {
-      window.alert("Word is not recognised!");
-    });
-    */
 }
 
 function createSquares() {
@@ -521,10 +459,6 @@ function handleDeleteLetter() {
   if (currentWordArr.length >= 1) {
     const removedLetter = currentWordArr.pop();
 
-    console.log("GUESSED WORDS:");
-    console.log(guessedWords);
-    console.log(currentWordArr);
-
     guessedWords[guessedWords.length - 1] = currentWordArr;
 
     const lastLetterEl = document.getElementById(String(availableSpace - 1));
@@ -535,8 +469,6 @@ function handleDeleteLetter() {
 }
 
 async function handleStart() {
-  console.log("HERE");
-
   const gameBoard = document.getElementById("board");
 
   for (let index = 0; index < 30; index++) {
@@ -549,8 +481,6 @@ async function handleStart() {
 
 
 function startFunc() {
-  console.log("HERE");
-
   keys = document.querySelectorAll(".keyboard-row button");
 
   for (let i = 0; i < keys.length; i++) {
@@ -584,6 +514,7 @@ function setMyKeyDownListener() {
 }
 
 function MyFunction (the_Key) {
+  if (!gameOver) {
     if (the_Key == "Enter") {
       handleSubmitWord();
     } else if (the_Key == "Backspace") {
@@ -591,6 +522,7 @@ function MyFunction (the_Key) {
     } else {
       updateGuessedWords(the_Key);
     }
+  }
 }
 
 /* Open when someone clicks on the span element */
@@ -742,6 +674,9 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
+
+      await getNewWord();
+
       setMyKeyDownListener();
       setTimeout(startFunc, 1000)
 
@@ -868,9 +803,9 @@ export default class extends AbstractView {
           <div class="theme-div" id="themes-div">
             <button style="background-color: #FFFFFF" value="Light"><div class="selected" id="theme-dark"></div></button>
             <button class="chosen" style="background-color: #3a3a3c" value="Dark"><div class="selected"></div></button>
-            <button style="background-color: #595959" value="Wrong"><div class="selected"></div></button>
+            <!-- <button style="background-color: #595959" value="Wrong"><div class="selected"></div></button>
             <button style="background-color: #FFCB23" value="Hint"><div class="selected"></div></button>
-            <button style="background-color: #6DCF63" value="Correct"><div class="selected"></div></button>
+            <button style="background-color: #6DCF63" value="Correct"><div class="selected"></div></button> -->
             <button style="background-color: #DDEEBF" value="Key Lime Meringue"><div class="selected"></div></button>
             <button style="background-color: #CBCAC8" value="Platinum"><div class="selected"></div></button>
             <button style="background-color: #F2DCDE" value="Quartz"><div class="selected"></div></button>
